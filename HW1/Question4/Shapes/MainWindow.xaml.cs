@@ -14,6 +14,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/* Author: Kyle Reinholt 
+ * Course: OOAD 
+ * HW1 - Question 4
+ * 
+*/ 
+
 namespace Shapes
 {
     /// <summary>
@@ -36,6 +42,9 @@ namespace Shapes
             
             //run a query to get all of the info we need. 
             List<queryRow> shapeQuery = dBHandler.selectStatement("SELECT * FROM shapes;");
+
+            //display the number of shapes in the database 
+            numberOfShapesLabel.Content = "Total Number of Shapes in Database: " + shapeQuery.Count.ToString(); 
             
             //shape handler turns the query into a list of shape objects such that circle, square, and triangle inherit properties from the shape class
             ShapeHandler shapeHandler = new ShapeHandler(shapeQuery);

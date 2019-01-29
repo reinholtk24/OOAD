@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* Author: Kyle Reinholt 
+ * Course: OOAD 
+ * HW1 - Question 4
+ * 
+*/
+
 namespace Shapes
 {
     class DBHandler
@@ -15,7 +21,7 @@ namespace Shapes
             Console.WriteLine("Connection to " + DBName.ToString() + " successful."); 
         }
 
-        //Creates a fake db query, note the fourth parameter is z-order and it is not in the correct order yet. 
+        //Creates a fake db query, note the fourth parameter is z-order and it is not in the correct order yet. The sorting is handled by the ShapeHandler class.  
         public List<queryRow> selectStatement(string query)
         {
             Query = new List<queryRow>();

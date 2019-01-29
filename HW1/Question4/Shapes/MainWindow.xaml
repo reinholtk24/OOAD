@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shapes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="MainWindow" Height="900" Width="951.436">
     <Grid>
-        <TextBox x:Name="textbox1" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="800" Margin="10,10,-818,-491" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1500"/>
+        <TextBox x:Name="textbox1" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="735" Margin="10,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="870"/>
+        <Label x:Name="numberOfShapesLabel" Content="Label" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.753,0.35" Height="33" Width="870" FontSize="18" FontWeight="Bold"/>
 
     </Grid>
 </Window>

@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows; 
+using System.Windows;
+
+/* Author: Kyle Reinholt 
+ * Course: OOAD 
+ * HW1 - Question 4
+ * 
+*/
 
 namespace Shapes
 {

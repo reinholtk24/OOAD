@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* Author: Kyle Reinholt 
+ * Course: OOAD 
+ * HW1 - Question 4
+ * 
+*/
+
 namespace Shapes
 {
     class ShapeDisplay

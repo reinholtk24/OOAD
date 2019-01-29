@@ -5,6 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+/* Author: Kyle Reinholt 
+ * Course: OOAD 
+ * HW1 - Question 4
+ * 
+*/
+
 namespace Shapes
 {
     class Square : Shape
