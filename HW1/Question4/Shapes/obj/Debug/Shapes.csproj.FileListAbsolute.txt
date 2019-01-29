@@ -1,0 +1,15 @@
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\bin\Debug\Shapes.exe.config
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\bin\Debug\Shapes.exe
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\bin\Debug\Shapes.pdb
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.csprojAssemblyReference.cache
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\MainWindow.g.cs
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\App.g.cs
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes_MarkupCompile.cache
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes_MarkupCompile.lref
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\MainWindow.baml
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.g.resources
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.Properties.Resources.resources
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.csproj.GenerateResource.cache
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.csproj.CoreCompileInputs.cache
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.exe
+C:\Users\kychill\Documents\Object Oriented Design\HW1\Shapes\Shapes\obj\Debug\Shapes.pdb
