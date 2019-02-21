@@ -24,11 +24,13 @@ public class Report {
 		return total; 
 	}
 	
+	//This should only be called at the end of the program!! 
 	public void getToolsInStore(Inventory storeInventory)
 	{
 		for(Tool t : storeInventory.list())
 		{
 			toolsInStore.add(t); 
+			System.out.println(String.format("Tool: " + t.getName() + " Price: " + t.getPrice()));
 		}
 	}
 	
@@ -41,7 +43,7 @@ public class Report {
 	{
 		for(Rental r : totalRentals)
 		{
-			r.toString(); 
+			System.out.println(r.toString()); 
 		}
 	}
 	
@@ -51,13 +53,19 @@ public class Report {
 		{
 			if(r.getRentStatus())
 			{
-				r.toString();
+				System.out.println(r.toString());
 			}
 			else
 			{
 				continue; 
 			}
 		}
+	}
+	
+	public String toString()
+	{
+		allToolsRented(); 
+		return String.format("Total Profit: " + totalProfit ); 
 	}
 	
 }

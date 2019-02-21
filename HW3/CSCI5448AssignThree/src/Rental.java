@@ -61,5 +61,9 @@ public class Rental {
 	{
 		return total; 
 	}
+	public String toString()
+	{
+		return String.format("Total: " + getTotal() + " Rent Status: " + active + " Customer: " + customerName); 
+	}
 	
 }
