@@ -10,6 +10,11 @@ public class main {
 		
 	}
 	
+	
+	/**
+	 * For testing purposes only
+	 * @param cs
+	 */
 	public static void print(List<Customer> cs)
 	{
 		for(Customer c : cs) {
@@ -17,6 +22,10 @@ public class main {
         }
 	}
 	
+	/**
+	 * For testing purposes only 
+	 * @return
+	 */
 	public static List<Customer> createTestCustomerList()
 	{
 		List<Customer> test = new ArrayList<Customer>(); 
