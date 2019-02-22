@@ -3,7 +3,7 @@ import java.util.*;
 //Note: Sorry, I am just implementing a basic version of this 
 // class so that I can test a couple things. 
 public class Inventory {
-	List<Tool> tools;
+	private List<Tool> tools;
 	
 	Inventory()
 	{

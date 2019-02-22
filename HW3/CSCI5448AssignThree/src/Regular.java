@@ -1,8 +1,24 @@
 
 public class Regular extends Customer {
 
-	Regular(int type, String name, int nights, int tools)
+	Regular(String name)
 	{
-		super(type,name,nights,tools); 
+		super(name); 
+		setMaxNights(5); 
+		setMaxTools(3); 
+		setMinNights(3); 
+		setMinTools(1); 
+	}
+	
+	@Override
+	public void setType()
+	{
+		type = 3; 
+	}
+	
+	@Override
+	public String getType()
+	{
+		return "Regular"; 
 	}
 }

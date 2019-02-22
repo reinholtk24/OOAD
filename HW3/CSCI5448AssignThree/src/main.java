@@ -65,7 +65,7 @@ public class main {
 	public static void print(List<Customer> cs)
 	{
 		for(Customer c : cs) {
-            System.out.println(c.getName());
+            System.out.println(c.toString()); 
         }
 	}
 	
@@ -77,9 +77,9 @@ public class main {
 	{
 		List<Customer> test = new ArrayList<Customer>(); 
 		
-		Customer joe = new Casual(1,"Joe",2,2); 
-		Customer gertrude = new Business(2,"Gertrude",7,3);
-		Customer diezel = new Regular(3,"Diezel",5,3);
+		Customer joe = new Casual("Joe"); 
+		Customer gertrude = new Business("Gertrude");
+		Customer diezel = new Regular("Diezel");
 		
 		test.add(joe); 
 		test.add(gertrude); 

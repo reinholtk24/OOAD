@@ -65,7 +65,7 @@ public class Report {
 	public String toString()
 	{
 		allToolsRented(); 
-		return String.format("Total Profit: " + totalProfit ); 
+		return String.format("Total Sales: " + totalProfit ); 
 	}
 	
 }

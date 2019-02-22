@@ -1,8 +1,24 @@
 
 public class Casual extends Customer {
 	
-	Casual(int type, String name, int nights, int tools)
+	Casual(String name)
+	{ 
+		super(name); 
+		setMaxNights(2); 
+		setMaxTools(2); 
+		setMinNights(1); 
+		setMinTools(1); 
+	}
+	
+	@Override
+	public void setType()
 	{
-		super(type,name,nights,tools); 
+		type = 1; 
+	}
+	
+	@Override
+	public String getType()
+	{
+		return "Casual"; 
 	}
 }
