@@ -12,9 +12,9 @@ In psuedo code:
 ```
 for (day = 1; day <= 35; day++){
 	store.checkRentals(day) // possibly replenish inventory items once day starts        
-	store.checkInventory() // we will open or close store based on inventory
+	itemsAvailable = store.checkInventory() // we will open or close store based on inventory
 	if(store.open() == true){
-		currentCustomers = store.generateCustomerList() // select eligible customers randomly
+		currentCustomers = store.generateCustomerList(itemsAvailable) // select eligible customers randomly based on itemsAvailable
 		foreach customer in currentCustomers{
 			store.assistCustomer(customer) //In here is where we create rentals and add them to the report
 		}
