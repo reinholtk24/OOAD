@@ -36,6 +36,8 @@ for (day = 1; day <= 35; day++){
 		* R,C
 		* R
 		* C,C,C
+	* Create canditates for each group
+		* Comb through each group and ensure the current customer is eligible to rent by checking current rentals to see if the customer would exceed their tool max if they were to rent more tools. 
 	* Finally, randomly select a group from the list of eligible customer groupings
 	
 	
