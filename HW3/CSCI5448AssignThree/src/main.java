@@ -36,11 +36,20 @@ public class main {
 		// At the beginning of everyday before customers come in the store, we can scan all rentals for returns.
 		int day = 1; 
 		
-		//Creating Rentals, Rental requires name, list of tools, max number of nights, and it needs to be active. 
-		Rental r = new Rental(currentCustomer.getName(),ts,currentCustomer.getMaxNights(),1,true); 
-		Rental r2 = new Rental(customers.get(1).getName(),ts2,customers.get(1).getMaxNights(),1,false);
+		String customer1Name = currentCustomer.getName();
+		int customer1Nights = currentCustomer.getMaxNights(); 
 		
-		//Add both rental transactions to report
+		//Selecting a second customer from the list to vary testing.
+		String customer2Name = customers.get(1).getName(); 
+		int customer2Nights = customers.get(1).getMaxNights(); 
+		
+		
+		//Creating Rentals, Rental requires name, list of tools, max number of nights, day, status.
+		// status will always be true when the rental is created. I made r2 false for testing purposes. 
+		Rental r = new Rental(customer1Name,ts,customer1Nights,day,true); 
+		Rental r2 = new Rental(customer2Name,ts2,customer2Nights,day,false);
+		
+		//Add both Rentals r and r2 to report
 		report.addRental(r);
 		report.addRental(r2);
 		
