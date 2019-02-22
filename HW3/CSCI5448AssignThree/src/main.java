@@ -7,6 +7,7 @@ public class main {
 		test1(); 	
 	}
 	
+	//Testing various constructors, and basic flow of the program using each type of object
 	public static void test1(){
 		Inventory allTools = new Inventory(); 
 		Report report = new Report(); 
