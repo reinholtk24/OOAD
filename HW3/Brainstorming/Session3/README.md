@@ -24,3 +24,18 @@ for (day = 1; day <= 35; day++){
 	}
 }
 ```
+
+* Breakdown of how customers will be selected
+* Let's say we have 5 tools left in the store, what do we do? 
+	* Create a pool of eligible customer combinations based on customer min/max tool preferences
+	* These are the combinations that would work with 5 tools left 
+	* B-Business (3 tools) C-Casual (1-2 tools) R-Regular (3-5 tools) 
+		* B,C,C
+		* B,C
+		* R,C,C
+		* R,C
+		* R
+		* C,C,C
+	* Finally, randomly select a group from the list of eligible customer groupings
+	
+	
