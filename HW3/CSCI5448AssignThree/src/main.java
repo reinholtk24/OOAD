@@ -31,9 +31,14 @@ public class main {
 		ts.add(t2);
 		ts2.add(t2); 
 		
+		//Keep track of day, this is saying today is day one that store is open
+		// In the rental, day+nights will equal the return date. 
+		// At the beginning of everyday before customers come in the store, we can scan all rentals for returns.
+		int day = 1; 
+		
 		//Creating Rentals, Rental requires name, list of tools, max number of nights, and it needs to be active. 
-		Rental r = new Rental(currentCustomer.getName(),ts,currentCustomer.getMaxNights(),true); 
-		Rental r2 = new Rental(customers.get(1).getName(),ts2,customers.get(1).getMaxNights(),false);
+		Rental r = new Rental(currentCustomer.getName(),ts,currentCustomer.getMaxNights(),1,true); 
+		Rental r2 = new Rental(customers.get(1).getName(),ts2,customers.get(1).getMaxNights(),1,false);
 		
 		//Add both rental transactions to report
 		report.addRental(r);
