@@ -7,8 +7,7 @@ public class main {
 		test1(); 	
 	}
 	
-	public static void test1()
-	{
+	public static void test1(){
 		Inventory allTools = new Inventory(); 
 		Report report = new Report(); 
 		
@@ -31,7 +30,7 @@ public class main {
 		ts.add(t2);
 		ts2.add(t2); 
 		
-		//Creating Rentals 
+		//Creating Rentals, Rental requires name, list of tools, max number of nights, and it needs to be active. 
 		Rental r = new Rental(currentCustomer.getName(),ts,currentCustomer.getMaxNights(),true); 
 		Rental r2 = new Rental(customers.get(1).getName(),ts2,customers.get(1).getMaxNights(),false);
 		
@@ -62,8 +61,7 @@ public class main {
 	 * For testing purposes only
 	 * @param cs
 	 */
-	public static void print(List<Customer> cs)
-	{
+	public static void print(List<Customer> cs){
 		for(Customer c : cs) {
             System.out.println(c.toString()); 
         }
@@ -73,8 +71,7 @@ public class main {
 	 * For testing purposes only 
 	 * @return
 	 */
-	public static List<Customer> createTestCustomerList()
-	{
+	public static List<Customer> createTestCustomerList(){
 		List<Customer> test = new ArrayList<Customer>(); 
 		
 		Customer joe = new Casual("Joe"); 

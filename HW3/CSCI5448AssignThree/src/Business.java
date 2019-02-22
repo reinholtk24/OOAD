@@ -1,8 +1,7 @@
 
 public class Business extends Customer{
 	
-	Business(String name)
-	{
+	Business(String name){
 		super(name); 
 		setMaxNights(7); 
 		setMaxTools(3); 
@@ -11,14 +10,12 @@ public class Business extends Customer{
 	}
 	
 	@Override
-	public void setType()
-	{
+	public void setType(){
 		type = 2; 
 	}
 	
 	@Override
-	public String getType()
-	{
+	public String getType(){
 		return "Business"; 
 	}
 

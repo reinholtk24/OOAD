@@ -5,8 +5,7 @@ import java.util.*;
 public class Inventory {
 	private List<Tool> tools;
 	
-	Inventory()
-	{
+	Inventory(){
 		Tool t = new Tool(3.0,"PaintTool1"); 
 		Tool t2 = new Tool(5.0,"PlumbingTool1"); 
 		Tool t3 = new Tool(10.0,"WoodWorkTool1"); 
@@ -16,8 +15,7 @@ public class Inventory {
 		tools.add(t3); 
 	}
 	
-	public List<Tool> list()
-	{
+	public List<Tool> list(){
 		return tools; 
 	}
 }

@@ -1,8 +1,7 @@
 
 public class Regular extends Customer {
 
-	Regular(String name)
-	{
+	Regular(String name){
 		super(name); 
 		setMaxNights(5); 
 		setMaxTools(3); 
@@ -11,14 +10,12 @@ public class Regular extends Customer {
 	}
 	
 	@Override
-	public void setType()
-	{
+	public void setType(){
 		type = 3; 
 	}
 	
 	@Override
-	public String getType()
-	{
+	public String getType(){
 		return "Regular"; 
 	}
 }

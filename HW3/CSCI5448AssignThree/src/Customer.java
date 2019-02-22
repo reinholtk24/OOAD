@@ -7,56 +7,45 @@ public class Customer {
 	int minNights; 
 	int minTools; 
 	
-	public Customer(String name)
-	{
+	public Customer(String name){
 		setName(name); 
 	}
 	
 	public String getType(){return "";} 
 	public void setType() {}
-	public String getName()
-	{
+	
+	public String getName(){
 		return name; 
 	}
-	public void setName(String name)
-	{
+	public void setName(String name){
 		this.name = name; 
 	}
-	public int getMaxNights()
-	{
+	public int getMaxNights(){
 		return maxNights; 
 	}
-	public void setMaxNights(int nights)
-	{
+	public void setMaxNights(int nights){
 		maxNights = nights; 
 	}
-	public int getMinNights()
-	{
+	public int getMinNights(){
 		return minNights; 
 	}
-	public void setMinNights(int nights)
-	{
+	public void setMinNights(int nights){
 		minNights = nights; 
 	}
-	public int getMaxTools()
-	{
+	public int getMaxTools(){
 		return maxTools; 
 	}
-	public void setMaxTools(int tools)
-	{
+	public void setMaxTools(int tools){
 		maxTools = tools; 
 	}
-	public int getMinTools()
-	{
+	public int getMinTools(){
 		return minTools; 
 	}
-	public void setMinTools(int tools)
-	{
+	public void setMinTools(int tools){
 		minTools = tools; 
 	}
 	
-	public String toString()
-	{
+	public String toString(){
 		return String.format("Customer Name: " + name + " Type: " + getType() + " Nights: " + minNights + "-"+maxNights + " Tools: " + minTools +"-"+maxTools); 
 	}
 	

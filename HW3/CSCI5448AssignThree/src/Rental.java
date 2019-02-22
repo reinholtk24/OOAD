@@ -7,8 +7,7 @@ public class Rental {
 	boolean active; 
 	double total; 
 	
-	Rental(String name, List<Tool> tools, int nights, boolean active)
-	{
+	Rental(String name, List<Tool> tools, int nights, boolean active){
 		setCustomer(name); 
 		setTools(tools); 
 		setNights(nights); 
@@ -16,53 +15,41 @@ public class Rental {
 		calculateTotal(); 
 	}
 	
-	public String getCustomer()
-	{
+	public String getCustomer(){
 		return customerName; 
 	}
-	public void setCustomer(String name)
-	{
+	public void setCustomer(String name){
 		customerName = name; 
 	}
-	public List<Tool> getTools()
-	{
+	public List<Tool> getTools(){
 		return tools; 
 	}
-	public void setTools(List<Tool> t)
-	{
+	public void setTools(List<Tool> t){
 		this.tools = t; 
 	}
-	public int getNights()
-	{
+	public int getNights(){
 		return nights; 
 	}
-	public void setNights(int nights)
-	{
+	public void setNights(int nights){
 		this.nights = nights; 
 	}
-	public boolean getRentStatus()
-	{
+	public boolean getRentStatus(){
 		return active; 
 	}
-	public void setRentStatus(boolean active)
-	{
+	public void setRentStatus(boolean active){
 		this.active = active; 
 	}
-	public void calculateTotal()
-	{
+	public void calculateTotal(){
 		double subtotal = 0.0; 
-		for(Tool t : tools)
-		{
+		for(Tool t : tools){
 			subtotal+=t.getPrice(); 
 		}
 		total = subtotal*nights; 
 	}
-	public double getTotal()
-	{
+	public double getTotal(){
 		return total; 
 	}
-	public String toString()
-	{
+	public String toString(){
 		return String.format("Total: " + getTotal() + " Rent Status: " + active + " Customer: " + customerName); 
 	}
 	
