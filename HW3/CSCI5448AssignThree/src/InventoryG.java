@@ -29,4 +29,11 @@ public class InventoryG {
 		return tool.getType();
 	}
 	
+	/**
+	 * Do we need one of these for Inventory?
+	 */
+	public String toString() {
+		return String.format("Tool Name: ", tool.toolName);
+	}
+	
 }

@@ -1,8 +1,8 @@
 
 public class ToolG {
-	private double toolPrice;
-	private String toolName;
-	private int toolID;
+	double toolPrice;
+	String toolName;
+	int toolID;
 	
 	public ToolG(double price, String name, int id) {
 		this.toolPrice = price;
