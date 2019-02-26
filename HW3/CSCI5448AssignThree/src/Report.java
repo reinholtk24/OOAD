@@ -5,7 +5,7 @@ public class Report {
 	private List<Tool> toolsInStore;
 	private List<Rental> totalRentals;
 	
-	Report(){
+	public Report(){
 		totalProfit = 0.0; 
 		toolsInStore = new ArrayList<Tool>(); 
 		totalRentals = new ArrayList<Rental>(); 
