@@ -1,9 +1,15 @@
 
-public class WoodworkTool extends ToolG{
+public class WoodworkTool extends Tool{
 
 	public WoodworkTool(double price, String name, int id) {
 		super(price, name, id);
 		setPrice(10.00);	
+	}
+	
+	public WoodworkTool(String name) {
+		super(name); 
+		setPrice(10.00); 
+		setType(); 
 	}
 	
 	
@@ -11,9 +17,4 @@ public class WoodworkTool extends ToolG{
 		toolID = 4; 
 	}
 	
-	@Override
-	public String getName(){
-		return "Woodwork"; 
-	}
-
 }

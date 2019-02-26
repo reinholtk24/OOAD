@@ -1,29 +1,39 @@
 
-//just adding a little bit of stuff for testing
-//Please don't get mad at me :/ :) 
-
 public class Tool {
-	double price; 
-	String name; 
+	double toolPrice;
+	String toolName;
+	int toolID;
 	
-	public Tool(double price, String name){
-		setPrice(price); 
-		setName(name); 
+	public Tool(double price, String name, int id) {
+		this.toolPrice = price;
+		this.toolName = name;
+		this.toolID = id;
 	}
-
-	public void setPrice(double price){
-		this.price = price; 
-	}
-	
-	public double getPrice(){
-		return price; 
+	public Tool(String name){
+		this.toolName = name; 
 	}
 	
-	public void setName(String name){
-		this.name = name; 
+	public double getPrice() {
+		return this.toolPrice;
 	}
 	
-	public String getName(){
-		return name; 
+	public void setPrice(double toolPrice) {
+		this.toolPrice = toolPrice;
+	}
+	
+	public String getName() {
+		return this.toolName;
+	}
+	
+	public void setName(String toolName) {
+		this.toolName = toolName;
+	}
+	
+	public int getType() {
+		return this.toolID;
+	}
+	
+	public void setType(int toolID) {
+		this.toolID = toolID;
 	}
 }

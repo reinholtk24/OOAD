@@ -21,8 +21,9 @@ public class main {
 		Customer currentCustomer = customers.get(0); 
 		
 		// Creating test tool orders 
-		Tool t1 = new Tool(3.0,"PaintTool1"); 
-		Tool t2 = new Tool(10.0,"WoodWork1");
+		//double price, String name, int id
+		Tool t1 = new PaintingTool("PaintTool10"); 
+		Tool t2 = new WoodworkTool("WoodWork10");
 		
 		List<Tool> ts = new ArrayList<Tool>(); 
 		List<Tool> ts2 = new ArrayList<Tool>(); 
