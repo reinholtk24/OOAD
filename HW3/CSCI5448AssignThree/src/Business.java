@@ -10,11 +10,6 @@ public class Business extends Customer{
 	}
 	
 	@Override
-	public void setType(){
-		type = 2; 
-	}
-	
-	@Override
 	public String getType(){
 		return "Business"; 
 	}

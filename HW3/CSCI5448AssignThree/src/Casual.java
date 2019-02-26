@@ -9,10 +9,6 @@ public class Casual extends Customer {
 		setMinTools(1); 
 	}
 	
-	@Override
-	public void setType(){
-		type = 1; 
-	}
 	
 	@Override
 	public String getType(){

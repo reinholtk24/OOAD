@@ -10,11 +10,6 @@ public class Regular extends Customer {
 	}
 	
 	@Override
-	public void setType(){
-		type = 3; 
-	}
-	
-	@Override
 	public String getType(){
 		return "Regular"; 
 	}
