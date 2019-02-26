@@ -36,43 +36,54 @@ public class Store {
 				
 	}
 	
+	public Inventory getInventory(){
+		return inventory; 
+	}
+	
 	public void assist(Customer customer, int day) {
 		Random rand = new Random();
 		int numToolsCustomerCanRent = report.numToolsAvailableForRent(customer);
-		if(numToolsCustomerCanRent > 0) {
-			int numToolsCustomerWillRent;  
-			if(numToolsCustomerCanRent == customer.getMinTools()){
-				numToolsCustomerWillRent = customer.getMinTools(); 
-			}
-			else {
-				System.out.println("Day: " + day); 
-				System.out.println(customer.toString()); 
-				System.out.println("numToolsCustomerCanRent: " + numToolsCustomerCanRent);
-				System.out.println("customer.getMinTools(): " + customer.getMinTools());
-				System.out.println("customer.getMaxTools(): " + customer.getMaxTools());
-				report.printRentalsForCustomer(customer);
-				numToolsCustomerWillRent = rand.nextInt((numToolsCustomerCanRent - customer.getMinTools()) + 1) + customer.getMinTools();	
-			}
-			List<Tool> toolsRented = new ArrayList();
-			if(numToolsCustomerWillRent > inventory.list().size()){
-				numToolsCustomerWillRent = inventory.list().size(); 
-			}
-			for(int i = 0; i < numToolsCustomerWillRent; i++) {
-				System.out.println("Inventory: " + inventory.list().size()); 
-				int numTool = rand.nextInt(inventory.list().size())+1;
-				numTool = numTool-1; 
-				Tool t = inventory.list().get(numTool);
-				inventory.removeTool(t);
-				toolsRented.add(t);
-			}
-			System.out.println("maxNights: " + customer.getMaxNights()); 
-			System.out.println("minNights: " + customer.getMinNights());
-			int nights = rand.nextInt((customer.getMaxNights() - customer.getMinNights()) + 1) + customer.getMinNights();
-			Rental currRental = new Rental(customer.getName(), toolsRented, nights, day, true);
-			report.addRental(currRental);
+		if(customer.getType() == "Business" && inventory.getNumOfTools() < 3) {
+			System.out.println("Spaghetti"); 
 		}
 		else {
-			System.out.println("Customer cannot rent"); 
+			if(numToolsCustomerCanRent > 0) {
+				int numToolsCustomerWillRent;  
+				if(numToolsCustomerCanRent == customer.getMinTools()){
+					numToolsCustomerWillRent = customer.getMinTools(); 
+				}
+				else {
+					System.out.println("Day: " + day); 
+					System.out.println(customer.toString()); 
+					System.out.println("numToolsCustomerCanRent: " + numToolsCustomerCanRent);
+					System.out.println("customer.getMinTools(): " + customer.getMinTools());
+					System.out.println("customer.getMaxTools(): " + customer.getMaxTools());
+					report.printRentalsForCustomer(customer);
+					numToolsCustomerWillRent = rand.nextInt((numToolsCustomerCanRent - customer.getMinTools()) + 1) + customer.getMinTools();	
+				}
+				List<Tool> toolsRented = new ArrayList();
+				if(numToolsCustomerWillRent > inventory.getNumOfTools()){
+					numToolsCustomerWillRent = inventory.getNumOfTools(); 
+				}
+				for(int i = 0; i < numToolsCustomerWillRent; i++) {
+					System.out.println("Inventory: " + inventory.list().size()); 
+					int numTool = rand.nextInt(inventory.getNumOfTools())+1;
+					numTool = numTool-1; 
+					Tool t = inventory.list().get(numTool);
+					inventory.removeTool(t);
+					toolsRented.add(t);
+				}
+				System.out.println("maxNights: " + customer.getMaxNights()); 
+				System.out.println("minNights: " + customer.getMinNights());
+				System.out.println("CustomerType: " + customer.getType()) ;
+				int nights = rand.nextInt((customer.getMaxNights() - customer.getMinNights()) + 1) + customer.getMinNights();
+				Rental currRental = new Rental(customer.getName(), toolsRented, nights, day, true);
+				System.out.println(currRental.toString()); 
+				report.addRental(currRental);
+			}
+			else {
+				System.out.println("Customer cannot rent"); 
+			}
 		}
 	}
 	

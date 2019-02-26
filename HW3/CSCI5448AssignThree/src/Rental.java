@@ -1,12 +1,12 @@
 import java.util.*;
 
 public class Rental {
-	String customerName; 
-	List<Tool> tools; 
-	int nights; 
-	int dayOfRental; 
-	boolean active; 
-	double total; 
+	private String customerName; 
+	private List<Tool> tools; 
+	private int nights; 
+	private int dayOfRental; 
+	private boolean active; 
+	private double total; 
 	
 	
 	Rental(String name, List<Tool> tools, int nights, int day, boolean active){
@@ -60,7 +60,8 @@ public class Rental {
 	}
 	public String toString(){
 		return String.format("Total: " + getTotal() + " Rent Status: " + active + " Customer: " + customerName 
-				+ " \n\t Day of Rental: " + dayOfRental + " Nights: " + nights + " Return Day: " + getReturnDay()); 
+				+ " \n\t Day of Rental: " + dayOfRental + " Nights: " + nights + " Return Day: " + getReturnDay()
+				+ "\n\t Number of Tools: " + tools.size()); 
 	}
 	
 }
