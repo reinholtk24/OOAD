@@ -56,6 +56,16 @@ public class Report {
 		for(Rental r : totalRentals){
 			System.out.println(r.toString()); 
 		}
+	} 		
+	
+	public int numToolsAvailableForRent(Customer c) {
+		int numOfTools = 0; 		
+		for(Rental r: totalRentals) {
+			if(r.getRentStatus() == true && r.getCustomer() == c.getName()) {
+				numOfTools+=r.getTools().size(); 
+			}
+		}
+		return c.getMaxTools()-numOfTools; 
 	}
 	
 	public void currentToolsRented(){
