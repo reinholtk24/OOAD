@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Store {
 	private List<Customer> customers;
@@ -33,11 +34,24 @@ public class Store {
 				
 	}
 	
-	public void assistCustomer(Customer customer) {
+	public void assist(Customer customer, int day) {
+		Random rand = new Random();
+		int numToolsCustomerCanRent = report.numToolsAvailableForRent(customer);
+		int numToolsCustomerWillRent = rand.nextInt((numToolsCustomerCanRent - customer.getMinNights()) + 1) + customer.getMinNights();	
+		List<Tool> toolsRented = new ArrayList();
 		
+		for(int i = 0; i < numToolsCustomerWillRent; i++) {
+			int numTool = rand.nextInt(inventory.list().size() - 1) + 1;
+			Tool t = inventory.list().get(numTool);
+			inventory.removeTool(t);
+			toolsRented.add(t);
+		}
+		int nights = ((customer.getMaxNights() - customer.getMinNights()) + 1) + customer.getMinNights();
+		Rental currRental = new Rental(customer.getName(), toolsRented, nights, day, true);
+		report.addRental(currRental);
 	}
 	
-	public void checkRentals(int day) {
+	public void checkReturns(int day) {
 		List<Tool> toolsReturned = report.getToolsForReturn(day);
 		for(Tool t: toolsReturned) {
 			inventory.addTool(t);
@@ -46,7 +60,10 @@ public class Store {
 	}
 	
 	public List<Tool> checkInventory() {
-		
+		if (inventory.list().size() > 0)
+			isOpen = true;
+		else 
+			isOpen = false;
 		return inventory.list();
 		
 	}
@@ -55,17 +72,16 @@ public class Store {
 		return isOpen;
 	}
 	
-	public List<Customer> generateEligibleCustomers(int itemsAvailable) {
-		List<Customer> custs = new ArrayList<Customer>();
-		if(itemsAvailable <= 2) {
-			for (Customer c: customers) {
-				if (c.getType().equals("Casual")) {
-					custs.add(c);
-				}		
-			}
-			return custs;
-		}else {
-			return customers;
+	public List<Customer> generateEligibleCustomers() {
+		List<Customer> availableCustomers = new ArrayList<Customer>();
+		for (Customer c: customers) {
+			if (report.numToolsAvailableForRent(c) > 0)
+				availableCustomers.add(c);
 		}
+		return availableCustomers;
+	}
+	
+	public Report getReport() {
+		return report;
 	}
 }
