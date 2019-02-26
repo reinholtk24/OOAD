@@ -1,9 +1,9 @@
 import java.util.*; 
 
 public class Report {
-	double totalProfit; 
-	List<Tool> toolsInStore;
-	List<Rental> totalRentals;
+	private double totalProfit; 
+	private List<Tool> toolsInStore;
+	private List<Rental> totalRentals;
 	
 	Report(){
 		totalProfit = 0.0; 
@@ -19,6 +19,25 @@ public class Report {
 		}
 		
 		return total; 
+	}
+	
+	public List<Tool> getToolsForReturn(int day)
+	{
+		List<Tool> toolsBeingReturned = new ArrayList<Tool>(); 
+		
+		for(Rental r : totalRentals) {
+			if(r.getReturnDay() == day) {
+				r.setRentStatus(false);
+				for(Tool t: r.getTools()) {
+					toolsBeingReturned.add(t); 
+				}
+			}
+			else {
+				
+			}
+		}
+		
+		return toolsBeingReturned; 
 	}
 	
 	//This should only be called at the end of the program!! 
