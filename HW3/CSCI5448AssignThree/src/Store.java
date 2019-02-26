@@ -38,14 +38,34 @@ public class Store {
 	}
 	
 	public void checkRentals(int day) {
+		List<Tool> toolsReturned = report.getToolsForReturn(day);
+		for(Tool t: toolsReturned) {
+			inventory.addTool(t);
+		}
 		
 	}
 	
-	public void checkInventory() {
+	public List<Tool> checkInventory() {
 		
+		return inventory.list();
+		
+	}
+	
+	public boolean open() {
+		return isOpen;
 	}
 	
 	public List<Customer> generateEligibleCustomers(int itemsAvailable) {
-		return customers; 
+		List<Customer> custs = new ArrayList<Customer>();
+		if(itemsAvailable <= 2) {
+			for (Customer c: customers) {
+				if (c.getType().equals("Casual")) {
+					custs.add(c);
+				}		
+			}
+			return custs;
+		}else {
+			return customers;
+		}
 	}
 }

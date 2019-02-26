@@ -6,6 +6,7 @@ public class Customer {
 	int maxTools; 
 	int minNights; 
 	int minTools; 
+	boolean available;
 	
 	public Customer(String name){
 		setName(name); 
@@ -43,6 +44,12 @@ public class Customer {
 	}
 	public void setMinTools(int tools){
 		minTools = tools; 
+	}
+	public boolean getStatus() {
+		return available;
+	}
+	public void setStatus(boolean status) {
+		this.available = status;
 	}
 	
 	public String toString(){
