@@ -58,13 +58,28 @@ public class Report {
 		}
 	} 		
 	
+	public void printRentalsForCustomer(Customer c) {
+		for(Rental r: totalRentals) {
+			if(r.getCustomer() == c.getName()) {
+				System.out.println(r.toString());  
+			}
+		}
+	}
+	
 	public int numToolsAvailableForRent(Customer c) {
 		int numOfTools = 0; 		
 		for(Rental r: totalRentals) {
-			if(r.getRentStatus() == true && r.getCustomer() == c.getName()) {
-				numOfTools+=r.getTools().size(); 
+			if(r.getRentStatus() == true) {
+				if(r.getCustomer() == c.getName()) {
+					numOfTools=numOfTools +r.getTools().size(); 
+				}
+				
 			}
 		}
+		
+		System.out.println("numToolsAvailableForRent(Customer c) -> numOfTools: " + numOfTools);
+		System.out.println("numToolsAvailableForRent(Customer c) -> c.getMaxTools(): " + c.getMaxTools());
+		
 		return c.getMaxTools()-numOfTools; 
 	}
 	
