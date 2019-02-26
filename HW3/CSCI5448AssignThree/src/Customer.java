@@ -1,12 +1,12 @@
 
 public class Customer {
-	int type; 
-	String name; 
-	int maxNights;
-	int maxTools; 
-	int minNights; 
-	int minTools; 
-	boolean available;
+	private int type; 
+    private	String name; 
+	private int maxNights;
+	private int maxTools; 
+	private int minNights; 
+	private int minTools; 
+	private boolean available;
 	
 	public Customer(String name){
 		setName(name); 
