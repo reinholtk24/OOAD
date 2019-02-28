@@ -42,6 +42,7 @@ public class Report {
 	
 	//This should only be called at the end of the program!! 
 	public void getToolsInStore(Inventory storeInventory){
+		System.out.println("Tools left in inventory: " + storeInventory.getNumOfTools()); 
 		for(Tool t : storeInventory.list()){
 			toolsInStore.add(t); 
 			System.out.println(String.format("Tool: " + t.getName() + " Price: " + t.getPrice()));
@@ -77,9 +78,6 @@ public class Report {
 			}
 		}
 		
-		System.out.println("numToolsAvailableForRent(Customer c) -> numOfTools: " + numOfTools);
-		System.out.println("numToolsAvailableForRent(Customer c) -> c.getMaxTools(): " + c.getMaxTools());
-		
 		return c.getMaxTools()-numOfTools; 
 	}
 	
@@ -94,9 +92,13 @@ public class Report {
 		}
 	}
 	
+	public void showTotalProfit() {
+		System.out.println("Total profit from all rentals: " + totalProfit); 
+	}
+	
 	public String toString(){
 		allToolsRented(); 
-		return String.format("Total Sales: " + totalProfit ); 
+		return ""; 
 	}
 	
 }

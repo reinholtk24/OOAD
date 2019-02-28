@@ -44,7 +44,7 @@ public class Store {
 		Random rand = new Random();
 		int numToolsCustomerCanRent = report.numToolsAvailableForRent(customer);
 		if(customer.getType() == "Business" && inventory.getNumOfTools() < 3) {
-			System.out.println("Spaghetti"); 
+			//get out of here Business customer
 		}
 		else {
 			if(numToolsCustomerCanRent > 0) {
@@ -53,12 +53,6 @@ public class Store {
 					numToolsCustomerWillRent = customer.getMinTools(); 
 				}
 				else {
-					System.out.println("Day: " + day); 
-					System.out.println(customer.toString()); 
-					System.out.println("numToolsCustomerCanRent: " + numToolsCustomerCanRent);
-					System.out.println("customer.getMinTools(): " + customer.getMinTools());
-					System.out.println("customer.getMaxTools(): " + customer.getMaxTools());
-					report.printRentalsForCustomer(customer);
 					numToolsCustomerWillRent = rand.nextInt((numToolsCustomerCanRent - customer.getMinTools()) + 1) + customer.getMinTools();	
 				}
 				List<Tool> toolsRented = new ArrayList();
@@ -66,23 +60,18 @@ public class Store {
 					numToolsCustomerWillRent = inventory.getNumOfTools(); 
 				}
 				for(int i = 0; i < numToolsCustomerWillRent; i++) {
-					System.out.println("Inventory: " + inventory.list().size()); 
 					int numTool = rand.nextInt(inventory.getNumOfTools())+1;
 					numTool = numTool-1; 
 					Tool t = inventory.list().get(numTool);
 					inventory.removeTool(t);
 					toolsRented.add(t);
 				}
-				System.out.println("maxNights: " + customer.getMaxNights()); 
-				System.out.println("minNights: " + customer.getMinNights());
-				System.out.println("CustomerType: " + customer.getType()) ;
 				int nights = rand.nextInt((customer.getMaxNights() - customer.getMinNights()) + 1) + customer.getMinNights();
 				Rental currRental = new Rental(customer.getName(), toolsRented, nights, day, true);
-				System.out.println(currRental.toString()); 
 				report.addRental(currRental);
 			}
 			else {
-				System.out.println("Customer cannot rent"); 
+				//no rentals allowed
 			}
 		}
 	}
