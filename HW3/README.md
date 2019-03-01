@@ -8,6 +8,9 @@
 	* Test 
 	* Repeat
 	
+Code is in folder CSCI5448AssignThree
+No special instructions to run code
+
 * Authors: 
 	* Gabriella Johnson
 	* Kyle Reinholt 
