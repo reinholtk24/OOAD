@@ -21,6 +21,16 @@ namespace SnakeV1
             SetTimer(); 
         }
 
+        public void setInputAsKeyboard()
+        {
+            currentInput = new Keyboard(); 
+        }
+
+        public void setInputAsMouse()
+        {
+            currentInput = new Mouse(); 
+        }
+
         private void SetTimer()
         {
             // Create a timer with a two second interval.

@@ -21,6 +21,8 @@ namespace SnakeV1
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameController gc; 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,8 +31,17 @@ namespace SnakeV1
 
         public void test()
         {
-            GameController gc = new GameController(); 
+           gc = new GameController(); 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            gc.setInputAsMouse();  
+        }
+
+        private void KeyboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            gc.setInputAsKeyboard(); 
+        }
     }
 }
