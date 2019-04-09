@@ -62,6 +62,7 @@
     <Compile Include="Head.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Keyboard.cs" />
+    <Compile Include="Mouse.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Snake.cs" />
     <Compile Include="SnakePart.cs" />

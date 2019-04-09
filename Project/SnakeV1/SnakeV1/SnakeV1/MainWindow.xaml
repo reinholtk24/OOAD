@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeV1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="900" Width="1600">
     <Grid>
-        <Canvas x:Name="GameCanvas" HorizontalAlignment="Left" Height="363" VerticalAlignment="Top" Width="583" Margin="10,46,0,0" Background="#FFF1F1F1"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="620,139,0,0" Height="50"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="620,46,0,0" Height="53"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="620,329,0,0" Height="50"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="620,232,0,0" Height="50"/>
+        <Canvas x:Name="GameCanvas" HorizontalAlignment="Left" Height="800" VerticalAlignment="Top" Width="1380" Margin="10,46,0,0" Background="#FFF1F1F1"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="1416,183,0,0" Height="50"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="1416,46,0,0" Height="53"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="1416,420,0,0" Height="50"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Margin="1416,299,0,0" Height="50"/>
         <Label x:Name="TitleLabel" Content="Snake Eyes" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="6.556,1.125" Margin="258,10,0,0" Width="107" Height="36" FontSize="20"/>
 
     </Grid>

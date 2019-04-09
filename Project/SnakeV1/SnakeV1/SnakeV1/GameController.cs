@@ -16,7 +16,7 @@ namespace SnakeV1
 
         public GameController()
         {
-            currentInput = new Keyboard();
+            currentInput = new Mouse();
             snake = new Snake();
             SetTimer(); 
         }
@@ -24,7 +24,7 @@ namespace SnakeV1
         private void SetTimer()
         {
             // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(240); // put in a smaller value to make the snake faster
+            aTimer = new System.Timers.Timer(500); // put in a smaller value to make the snake faster
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
