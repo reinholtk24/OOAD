@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Input;
-using System.Speech;
+using System.Speech.Recognition;
 
 namespace SnakeV1
 {
@@ -19,7 +19,32 @@ namespace SnakeV1
             win.KeyDown += Win_KeyDown;
         }
 
-        private void Win_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        static void Main() {
+            SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
+            Grammar dictationGrammar = new DictationGrammar();
+            recognizer.LoadGrammar(dictationGrammar);
+            try
+            {
+                System.Console.WriteLine("Start talking!");
+                recognizer.SetInputToDefaultAudioDevice();
+                RecognitionResult result = recognizer.Recognize();
+                System.Console.WriteLine(result.Text);
+            }
+            catch (InvalidOperationException exception)
+            {
+                System.Console.WriteLine(
+                    String.Format(
+                        "Could not recognize input; {0}: '{1}'.",
+                         exception.GetType(), exception.Message));
+            }
+            finally
+            {
+                recognizer.UnloadAllGrammars();
+            }
+            System.Console.WriteLine("Done. Press any key...");
+            System.Console.ReadKey(true);
+        }
+private void Win_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Down)
             {
