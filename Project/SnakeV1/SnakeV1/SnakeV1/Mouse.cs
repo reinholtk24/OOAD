@@ -23,8 +23,8 @@ namespace SnakeV1
         {
             bool flag = false;
             int dif = (end - start);
-            Console.WriteLine("time difference: " + dif.ToString()); 
-            if(dif > 100 )
+            //Console.WriteLine("time difference: " + dif.ToString()); 
+            if(dif > 90 )
             {
                 flag = true; 
             }
@@ -41,7 +41,7 @@ namespace SnakeV1
             double ySqrd = Math.Pow(yDif, 2);
             double sum = xSqrd + ySqrd; 
             double dif = Math.Sqrt(sum);
-            Console.WriteLine("Square Difference: " + dif.ToString()); 
+             
             if(dif > 30)
             {
                 flag = true; 
@@ -63,9 +63,9 @@ namespace SnakeV1
                 if(timeDifference(startSwipe,e.Timestamp))
                 {
                     Point current = e.GetPosition(sender as IInputElement);
-                    Console.WriteLine("current: " + current.ToString());
-                    Console.WriteLine("start: " + start.ToString());
-                    Console.WriteLine("swipeStart: " + startSwipe.ToString()); 
+                    //Console.WriteLine("current: " + current.ToString());
+                    //Console.WriteLine("start: " + start.ToString());
+                    //Console.WriteLine("swipeStart: " + startSwipe.ToString()); 
 
                     if (squareDistance(current.X,start.X,current.Y,start.Y))
                     {
@@ -89,7 +89,7 @@ namespace SnakeV1
                         startSwipe = -1;
                     }
 
-                    startSwipe = -1;
+                    //startSwipe = -1;
                 }
 
                 
