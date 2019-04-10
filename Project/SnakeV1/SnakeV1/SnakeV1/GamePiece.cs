@@ -38,8 +38,8 @@ namespace SnakeV1
                 ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\"+graphic, UriKind.Absolute))
             };
             part.StrokeThickness = 2;
-            part.Width = 50;
-            part.Height = 50; 
+            part.Width = 25;
+            part.Height = 25; 
         }
 
         public virtual void setType()

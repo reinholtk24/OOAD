@@ -28,14 +28,16 @@ namespace SnakeV1
             currentInput = new Keyboard();
             snake = new Snake();
             food = new Food();
-            addObstacles();
+            addObstacles(20);
         }
 
-        private void addObstacles()
+        private void addObstacles(int count)
         {
-            obs1 = new Obstacle();
-            obs2 = new Obstacle();
-            obs3 = new Obstacle();
+            for(int i = 0; i < count; i++)
+            {
+                Obstacle obstacle = new Obstacle(); 
+            }
+       
         }
 
         public void setInputAsKeyboard()
@@ -74,7 +76,7 @@ namespace SnakeV1
             }
             else if (difficulty == "hard")
             {
-                refreshRate = 120;
+                refreshRate = 60;
             }
 
             return refreshRate; 

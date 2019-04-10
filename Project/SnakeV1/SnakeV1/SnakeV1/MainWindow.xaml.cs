@@ -121,7 +121,7 @@ namespace SnakeV1
             GameCanvas.Background = Brushes.LightGray;
             test(); 
             gc.newGame(); 
-            gc.SetTimer("meduim");
+            gc.SetTimer("medium");
         }
 
         private void hard_Click(object sender, RoutedEventArgs e)

@@ -14,7 +14,8 @@ namespace SnakeV1
 
         public SnakePart() : base()
         {
-            currDirection = "right"; 
+            currDirection = "right";
+            part.StrokeThickness = 0; 
         }
 
         public Rectangle getPart()

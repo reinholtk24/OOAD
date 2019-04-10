@@ -19,14 +19,14 @@ namespace SnakeV1
         int speed; 
 
         public Snake()
-        {
-            speed = 50; 
+        { 
             snake = new List<SnakePart>();
             SnakePart s1 = new Head();
             SnakePart s2 = new Body();
+            speed = (int)s1.getPart().Width; 
             Canvas.SetLeft(s1.getPart(), 210);
             Canvas.SetTop(s1.getPart(), 100);
-            Canvas.SetLeft(s2.getPart(), 160);
+            Canvas.SetLeft(s2.getPart(), Canvas.GetLeft(s1.getPart())-speed);
             Canvas.SetTop(s2.getPart(), 100);
             win.GameCanvas.Children.Add(s1.getPart());
             win.GameCanvas.Children.Add(s2.getPart());
