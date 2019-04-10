@@ -12,6 +12,7 @@ namespace SnakeV1
 {
     class Snake
     {
+        Random rnd = new Random();
         private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
         private List<SnakePart> snake;
         string direction; 
@@ -33,9 +34,44 @@ namespace SnakeV1
             snake.Add(s2);
         }
 
+        public bool isAlive()
+        {
+            bool flag = true; 
+            if(snake.Count > 0)
+            {
+                flag = true; 
+            }
+            else
+            {
+                flag = false; 
+            }
+
+            return flag; 
+        }
+
         public void setDirection(string direction)
         {
             this.direction = direction; 
+        }
+
+        public bool checkFood(Rectangle f)
+        {
+            bool flag = false;
+            Rectangle head = (Rectangle)win.GameCanvas.Children[0];
+            double left = (Canvas.GetLeft(head));
+            double top = (Canvas.GetTop(head));
+            if (left >= (Canvas.GetLeft(f) - speed) && left <= (Canvas.GetLeft(f) + speed))
+            {
+                if (top >= (Canvas.GetTop(f) - speed) && top <= (Canvas.GetTop(f) + speed))
+                {
+                    int x = rnd.Next(1, ((int)win.GameCanvas.Width - (int)f.Width));
+                    int y = rnd.Next(1, ((int)win.GameCanvas.Height - (int)f.Height));
+                    Canvas.SetLeft(f, x);
+                    Canvas.SetTop(f, y);
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
         public void changeHead()
@@ -91,6 +127,75 @@ namespace SnakeV1
             return flag;
         }
 
+        public bool checkObstacle(Rectangle f)
+        {
+            bool flag = false;
+           
+            Rectangle head = (Rectangle)win.GameCanvas.Children[0];
+            double left = (Canvas.GetLeft(head));
+            double top = (Canvas.GetTop(head));
+            if (left >= (Canvas.GetLeft(f) - speed) && left <= (Canvas.GetLeft(f) + speed))
+            {
+                if (top >= (Canvas.GetTop(f) - speed) && top <= (Canvas.GetTop(f) + speed))
+                {
+                    int x = rnd.Next(1, ((int)win.GameCanvas.Width - (int)f.Width));
+                    int y = rnd.Next(1, ((int)win.GameCanvas.Height - (int)f.Height));
+                    Canvas.SetLeft(f, x);
+                    Canvas.SetTop(f, y);
+                    flag = true;
+                }
+            }
+            return flag;
+        }
+
+        public void addPart(double x, double y, string d)
+        {
+            SnakePart sNew = new Body();
+
+            if (d == "right")
+            {
+                Canvas.SetLeft(sNew.getPart(), x - speed);
+                Canvas.SetTop(sNew.getPart(), y);
+            }
+            else if (d == "left")
+            {
+                Canvas.SetLeft(sNew.getPart(), x + speed);
+                Canvas.SetTop(sNew.getPart(), y);
+            }
+            else if (d == "up")
+            {
+                Canvas.SetLeft(sNew.getPart(), x);
+                Canvas.SetTop(sNew.getPart(), y + speed);
+            }
+            else if (d == "down")
+            {
+                Canvas.SetLeft(sNew.getPart(), x);
+                Canvas.SetTop(sNew.getPart(), y - speed);
+            }
+            //sNew.setCurrentDirection(d);
+            sNew.setLastDirection(d);
+            //Rectangle f = (Rectangle)win.GameCanvas.Children[win.GameCanvas.Children.Count - 1];
+            //win.GameCanvas.Children.RemoveAt(win.GameCanvas.Children.Count - 1);
+            win.GameCanvas.Children.Add(sNew.getPart());
+            //win.GameCanvas.Children.Add(f);
+            snake.Add(sNew);
+        }
+
+        public void resetObstacles()
+        {
+            for (int i = 0; i < win.GameCanvas.Children.Count; i++)
+            {
+                Rectangle currPart = (Rectangle)win.GameCanvas.Children[i];
+                if (currPart.Name == "obstacle")
+                {
+                    int x = rnd.Next(1, ((int)win.GameCanvas.Width - (int)currPart.Width));
+                    int y = rnd.Next(1, ((int)win.GameCanvas.Height - (int)currPart.Height));
+                    Canvas.SetLeft(currPart, x);
+                    Canvas.SetTop(currPart, y);
+                }
+            }
+        }
+
         public bool outOfBounds()
         {
             bool flag = false;
@@ -112,12 +217,10 @@ namespace SnakeV1
             return flag;
         }
 
-        public void moveSnake()
+        public void moveSnake2()
         {
             string currDirection = "";
-
-            int index = 0;
-            for (int i = 0; i < win.GameCanvas.Children.Count; i++)
+            for (int i = 0; i < snake.Count; i++)
             {
                 if (i == 0)
                 {
@@ -149,51 +252,93 @@ namespace SnakeV1
                 {
                     currDirection = snake[i - 1].getLastDirection();
                 }
-                Rectangle currPart = (Rectangle)win.GameCanvas.Children[i];
-                if (1 == 1)
+                Rectangle currPart = snake[i].getPart();
+                if (snake == null)
                 {
-                    //Console.WriteLine(Snake.Count);
-                    //Console.WriteLine(game.Children.Count);
-                    if (snake == null)
-                    {
-                        break;
-                    }
-                    SnakePart s = snake[index];
-                    s.setLastDirection(s.getCurrentDirection());
-
-                    double x = Canvas.GetLeft(currPart);
-                    double y = Canvas.GetTop(currPart);
-
-                    if (currDirection == "right")
-                    {
-                        Canvas.SetLeft(currPart, x + speed);
-                        Canvas.SetTop(currPart, y);
-                        s.setCurrentDirection("right");
-                    }
-                    else if (currDirection == "down")
-                    {
-                        Canvas.SetLeft(currPart, x);
-                        Canvas.SetTop(currPart, y + speed);
-                        s.setCurrentDirection("down");
-                    }
-                    else if (currDirection == "up")
-                    {
-                        Canvas.SetLeft(currPart, x);
-                        Canvas.SetTop(currPart, y - speed);
-                        s.setCurrentDirection("up");
-
-                    }
-                    else if (currDirection == "left")
-                    {
-                        Canvas.SetLeft(currPart, x - speed);
-                        Canvas.SetTop(currPart, y);
-                        s.setCurrentDirection("left");
-                    }
-                   
+                    break;
                 }
-                index++;
+                SnakePart s = snake[i];
+                s.setLastDirection(s.getCurrentDirection());
+
+                double x = Canvas.GetLeft(currPart);
+                double y = Canvas.GetTop(currPart);
+
+                if (currDirection == "right")
+                {
+                    Canvas.SetLeft(currPart, x + speed);
+                    Canvas.SetTop(currPart, y);
+                    s.setCurrentDirection("right");
+                }
+                else if (currDirection == "down")
+                {
+                    Canvas.SetLeft(currPart, x);
+                    Canvas.SetTop(currPart, y + speed);
+                    s.setCurrentDirection("down");
+                }
+                else if (currDirection == "up")
+                {
+                    Canvas.SetLeft(currPart, x);
+                    Canvas.SetTop(currPart, y - speed);
+                    s.setCurrentDirection("up");
+
+                }
+                else if (currDirection == "left")
+                {
+                    Canvas.SetLeft(currPart, x - speed);
+                    Canvas.SetTop(currPart, y);
+                    s.setCurrentDirection("left");
+                }
+                    
+            }
+            if (snake.Count > 0)
+            {
+                Rectangle f = getChild("food");
+                if (checkFood(f))
+                {
+                    double xs = Canvas.GetLeft(snake[snake.Count - 1].getPart());
+                    double ys = Canvas.GetTop(snake[snake.Count - 1].getPart());
+                    string d = snake[snake.Count - 1].getCurrentDirection();
+                    addPart(xs, ys, d);
+                    win.score.Content = "Score: " + ((snake.Count - 2) * 50).ToString();
+                    resetObstacles();
+                }
+                checkAllObstacles();
             }
         }
 
+        public void checkAllObstacles()
+        {
+            for (int i = 0; i < win.GameCanvas.Children.Count; i++)
+            {
+                Rectangle o = (Rectangle)win.GameCanvas.Children[i];
+                if (o.Name == "obstacle")
+                {
+                    if (checkObstacle(o))
+                    {
+                        win.GameCanvas.Children.Clear();
+                        win.GameCanvas.Background = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\go.png", UriKind.Absolute))
+                        };
+                        snake.Clear();
+                        break;
+                    }
+                }
+            }
+        }
+
+        public Rectangle getChild(string name)
+        {
+            Rectangle child = new Rectangle(); 
+            for(int i = 0; i < win.GameCanvas.Children.Count; i++)
+            {
+                Rectangle gp = (Rectangle)win.GameCanvas.Children[i];
+                if (gp.Name == "food")
+                {
+                    child = gp; 
+                }
+            }
+            return child; 
+        }
     }
 }

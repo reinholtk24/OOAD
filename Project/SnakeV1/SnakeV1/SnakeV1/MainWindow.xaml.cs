@@ -34,12 +34,14 @@ namespace SnakeV1
         {
             initHost(); 
             InitializeComponent();
-            test(); 
+            test();
+            printCanvasChildren();
         }
 
         public void test()
         {
-           gc = new GameController(); 
+           GameController newGame = new GameController(); 
+           gc = newGame; 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -96,5 +98,38 @@ namespace SnakeV1
 
         }
 
+        //test function
+        private void printCanvasChildren()
+        {
+            foreach(UIElement r in GameCanvas.Children)
+            {
+                 System.Windows.Shapes.Rectangle R = (System.Windows.Shapes.Rectangle)r;
+                Console.WriteLine(R.Name); 
+            }
+        }
+
+        private void easy_Click(object sender, RoutedEventArgs e)
+        {
+            GameCanvas.Background = Brushes.LightGray;
+            test(); 
+            gc.newGame(); 
+            gc.SetTimer("easy");
+        }
+
+        private void medium_Click(object sender, RoutedEventArgs e)
+        {
+            GameCanvas.Background = Brushes.LightGray;
+            test(); 
+            gc.newGame(); 
+            gc.SetTimer("meduim");
+        }
+
+        private void hard_Click(object sender, RoutedEventArgs e)
+        {
+            GameCanvas.Background = Brushes.LightGray;
+            test(); 
+            gc.newGame(); 
+            gc.SetTimer("hard");
+        }
     }
 }

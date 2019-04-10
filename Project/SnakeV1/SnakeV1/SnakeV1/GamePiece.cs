@@ -17,14 +17,14 @@ namespace SnakeV1
 
         public GamePiece()
         {
-            setGraphic(); 
+            setGraphic();
             loadGraphic();
-            setType(); 
+            setType();
         }
 
         public virtual void setGraphic()
         {
-            graphic = "food2.jpg"; 
+            graphic = ""; 
         }
 
         public void loadGraphic()
@@ -39,7 +39,7 @@ namespace SnakeV1
             };
             part.StrokeThickness = 2;
             part.Width = 50;
-            part.Height = 50;
+            part.Height = 50; 
         }
 
         public virtual void setType()

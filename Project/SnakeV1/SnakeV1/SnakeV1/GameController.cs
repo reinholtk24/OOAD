@@ -12,13 +12,30 @@ namespace SnakeV1
     {
         Input currentInput;
         Snake snake;
+        GamePiece food;
+        GamePiece obs1;
+        GamePiece obs2;
+        GamePiece obs3;
         public System.Timers.Timer aTimer;
 
         public GameController()
         {
+          
+        }
+
+        public void newGame()
+        {
             currentInput = new Keyboard();
             snake = new Snake();
-            SetTimer(); 
+            food = new Food();
+            addObstacles();
+        }
+
+        private void addObstacles()
+        {
+            obs1 = new Obstacle();
+            obs2 = new Obstacle();
+            obs3 = new Obstacle();
         }
 
         public void setInputAsKeyboard()
@@ -44,10 +61,30 @@ namespace SnakeV1
             currentInput = new Gaze(); 
         }
 
-        private void SetTimer()
+        private int getSpeed(string difficulty)
+        {
+            int refreshRate = 1000; 
+            if(difficulty == "easy")
+            {
+                refreshRate = 160;
+            }
+            else if (difficulty == "medium")
+            {
+                refreshRate = 140;
+            }
+            else if (difficulty == "hard")
+            {
+                refreshRate = 120;
+            }
+
+            return refreshRate; 
+
+        }
+
+        public void SetTimer(string difficulty)
         {
             // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(500); // put in a smaller value to make the snake faster
+            aTimer = new System.Timers.Timer(getSpeed(difficulty)); // put in a smaller value to make the snake faster
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
@@ -60,9 +97,20 @@ namespace SnakeV1
             snake.setDirection(currentInput.getDirection());
             Application.Current.Dispatcher.Invoke(() =>
             {
-                snake.moveSnake();
+                if (snake.isAlive())
+                {
+                    snake.moveSnake2();
+                }
+                else
+                {
+                    aTimer.Stop();
+                    aTimer.Dispose(); 
+                    
+                }
             });
         }
+
+        
 
 
     }

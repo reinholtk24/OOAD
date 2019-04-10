@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:SnakeV1"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="MainWindow" WindowState="Maximized" Height="900" Width="1600">
     <Window.Resources>
         <ResourceDictionary>
             <Style x:Key="RectangleWithGazeAwareAnimation" TargetType="Border">
@@ -83,6 +83,10 @@
         <Border x:Name="GazeDown" Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="1451,652,64,152">
             <TextBlock x:Name="Buttword3" Text="Down" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
+        <Label x:Name="score" Content="Score: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="759,15,0,0" FontSize="14"/>
+        <Button x:Name="easy" Click="easy_Click" Content="Easy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="1451,652,0,0"/>
+        <Button x:Name="medium" Click="medium_Click" Content="Medium" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="1451,702,0,0"/>
+        <Button x:Name="hard" Click="hard_Click" Content="Hard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="1451,757,0,0"/>
 
     </Grid>
 </Window>
