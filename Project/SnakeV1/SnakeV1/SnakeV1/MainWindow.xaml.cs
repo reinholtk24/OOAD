@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Forms; 
+using System.Windows.Forms;
+using Tobii.Interaction.Wpf;
+using Tobii.Interaction;
 
 namespace SnakeV1
 {
@@ -21,12 +23,18 @@ namespace SnakeV1
     /// </summary>
     public partial class MainWindow : Window
     {
-        GameController gc; 
+        GameController gc;
+        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
+        private static WpfInteractorAgent _agent;
+        private static Host _host; //hosts the connection to eye tracker 
+
+        private static GazePointDataStream _gazePointDataStream; //gets eye gaze from tracker
 
         public MainWindow()
         {
+            initHost(); 
             InitializeComponent();
-            test();
+            test(); 
         }
 
         public void test()
@@ -43,5 +51,50 @@ namespace SnakeV1
         {
             gc.setInputAsKeyboard(); 
         }
+    
+        private void GazeButton_Click(object sender, RoutedEventArgs e)
+        {
+            gc.setInputAsGaze(); 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CreateAndVisualizeUnfilteredGazePointStream(); 
+        }
+
+        public void initHost()
+        {
+            _host = new Host();
+            _agent = _host.InitializeWpfAgent();
+        }
+
+        private static void CreateAndVisualizeUnfilteredGazePointStream()
+        {
+            if (_gazePointDataStream != null)
+                _gazePointDataStream.Next -= OnNextGazePoint;
+
+            _gazePointDataStream = _host.Streams.CreateGazePointDataStream(Tobii.Interaction.Framework.GazePointDataMode.Unfiltered);
+            _gazePointDataStream.Next += OnNextGazePoint;
+        }
+
+        private static void OnNextGazePoint(object sender, StreamData<GazePointData> gazePoint)
+        {
+            //Uncomment next line to see eye tracker output
+            //Console.WriteLine("Timestamp: {0}\t,X:{1}, Y:{2}" + gazePoint.Data.Timestamp.ToString() + "\t" + gazePoint.Data.X.ToString() + "\t" + gazePoint.Data.Y.ToString());
+
+            string X = "";
+            string Y = "";
+            string TS = "";
+
+            X = gazePoint.Data.X.ToString();
+            Y = gazePoint.Data.Y.ToString();
+            TS = gazePoint.Data.Timestamp.ToString();
+            string SystemTS = DateTime.Now.ToString("mm:ss.ffffff");
+
+            //format gaze data for txt file
+            string data = TS + "," + X + "," + Y + "," + SystemTS;
+
+        }
+
     }
 }

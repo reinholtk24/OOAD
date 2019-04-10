@@ -17,6 +17,11 @@ namespace SnakeV1
             setType(); 
         }
 
+        public virtual void hide()
+        {
+
+        }
+
         public string getDirection()
         {
             return direction;
@@ -25,6 +30,11 @@ namespace SnakeV1
         public virtual void setType()
         {
             inputType = "";
+        }
+
+        public string getType()
+        {
+            return inputType;
         }
 
         public void showType()

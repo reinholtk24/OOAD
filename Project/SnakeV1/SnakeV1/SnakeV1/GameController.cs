@@ -16,19 +16,32 @@ namespace SnakeV1
 
         public GameController()
         {
-            currentInput = new Mouse();
+            currentInput = new Keyboard();
             snake = new Snake();
             SetTimer(); 
         }
 
         public void setInputAsKeyboard()
         {
+            if(currentInput.getType() == "gaze")
+            {
+                currentInput.hide(); 
+            }
             currentInput = new Keyboard(); 
         }
 
         public void setInputAsMouse()
         {
+            if (currentInput.getType() == "gaze")
+            {
+                currentInput.hide();
+            }
             currentInput = new Mouse(); 
+        }
+
+        public void setInputAsGaze()
+        {
+            currentInput = new Gaze(); 
         }
 
         private void SetTimer()

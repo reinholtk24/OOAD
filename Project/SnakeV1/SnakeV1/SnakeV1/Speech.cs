@@ -18,7 +18,7 @@ namespace SnakeV1
         {
             win.KeyDown += Win_KeyDown;
         }
-
+        /*
         static void Main() {
             SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
             Grammar dictationGrammar = new DictationGrammar();
@@ -44,6 +44,7 @@ namespace SnakeV1
             System.Console.WriteLine("Done. Press any key...");
             System.Console.ReadKey(true);
         }
+        */
 private void Win_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Down)
