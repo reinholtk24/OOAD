@@ -16,53 +16,55 @@ namespace SnakeV1
 
         public Speech() : base()
         {
-            win.KeyDown += Win_KeyDown;
+            runSpeech();
         }
-        /*
-        static void Main() {
+        private void runSpeech()
+        {
             SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
             Grammar dictationGrammar = new DictationGrammar();
             recognizer.LoadGrammar(dictationGrammar);
-            try
+            while (true)
             {
-                System.Console.WriteLine("Start talking!");
-                recognizer.SetInputToDefaultAudioDevice();
-                RecognitionResult result = recognizer.Recognize();
-                System.Console.WriteLine(result.Text);
+                String right = "right";
+                String left = "left";
+                String up = "up";
+                String down = "down";
+                try
+                {
+                    System.Console.WriteLine("Start talking!");
+                    recognizer.SetInputToDefaultAudioDevice();
+                    RecognitionResult result = recognizer.Recognize();
+                    System.Console.WriteLine(result.Text);
+                    if (result.Equals(right))
+                    {
+                        direction = "right";
+                    }
+                    else if (result.Equals(left))
+                    {
+                        direction = "left";
+                    }
+                    else if (result.Equals(up))
+                    {
+                        direction = "down";
+                    }
+                    else if (result.Equals(down))
+                    {
+                        direction = "left";
+                    }
+                }
+                catch (InvalidOperationException exception)
+                {
+                    System.Console.WriteLine(
+                        String.Format(
+                            "Could not recognize input; {0}: '{1}'.",
+                             exception.GetType(), exception.Message));
+                }
+                finally
+                {
+                    recognizer.UnloadAllGrammars();
+                }
             }
-            catch (InvalidOperationException exception)
-            {
-                System.Console.WriteLine(
-                    String.Format(
-                        "Could not recognize input; {0}: '{1}'.",
-                         exception.GetType(), exception.Message));
-            }
-            finally
-            {
-                recognizer.UnloadAllGrammars();
-            }
-            System.Console.WriteLine("Done. Press any key...");
             System.Console.ReadKey(true);
-        }
-        */
-private void Win_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Down)
-            {
-                direction = "down";
-            }
-            else if (e.Key == Key.Up)
-            {
-                direction = "up";
-            }
-            else if (e.Key == Key.Left)
-            {
-                direction = "left";
-            }
-            else if (e.Key == Key.Right)
-            {
-                direction = "right";
-            }
         }
 
         public override void setType()
