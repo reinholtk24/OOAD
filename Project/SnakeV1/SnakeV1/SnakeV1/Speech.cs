@@ -16,7 +16,10 @@ namespace SnakeV1
 
         public Speech() : base()
         {
-            runSpeech();
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+            {
+                runSpeech();
+            });
         }
         private void runSpeech()
         {
