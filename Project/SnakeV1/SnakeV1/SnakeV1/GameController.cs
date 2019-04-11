@@ -25,7 +25,7 @@ namespace SnakeV1
 
         public void newGame()
         {
-            currentInput = new Keyboard();
+            currentInput = new Speech();
             snake = new Snake();
             food = new Food();
             addObstacles(20);
