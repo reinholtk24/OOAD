@@ -63,6 +63,15 @@ namespace SnakeV1
             currentInput = new Gaze(); 
         }
 
+        public void setInputAsSpeech()
+        {
+            if (currentInput.getType() == "gaze")
+            {
+                currentInput.hide();
+            }
+            currentInput = new Speech();
+        }
+
         private int getSpeed(string difficulty)
         {
             int refreshRate = 1000; 

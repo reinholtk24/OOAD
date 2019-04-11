@@ -7,72 +7,82 @@ using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Input;
 using System.Speech.Recognition;
+using System.Threading;
 
 namespace SnakeV1
 {
     class Speech : Input
     {
+        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
 
         public Speech() : base()
         {
             runSpeech();
         }
+
         private void runSpeech()
         {
-            SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine();
-            Grammar dictationGrammar = new DictationGrammar();
-            recognizer.LoadGrammar(dictationGrammar);
-            while (true)
+            CreateCommands();
+            sre.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(sre_SpeechDetected);
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
+            sre.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(sre_RecognizeCompleted);
+            sre.SpeechRecognitionRejected += new EventHandler<SpeechRecognitionRejectedEventArgs>(sre_SpeechRecognitionRejected);
+            Thread t = new Thread(delegate () { sre.SetInputToDefaultAudioDevice(); sre.RecognizeAsync(RecognizeMode.Single); });
+            t.Start();
+        }
+
+        private void CreateCommands()
+        {
+            string[] commands = new string[] { "left", "right", "up", "down" };
+            Choices insChoices = new Choices(commands);
+            GrammarBuilder insGrammarBuilder = new GrammarBuilder(insChoices);
+            Grammar insGrammar = new Grammar(insGrammarBuilder);
+            sre.LoadGrammar(insGrammar);
+        }
+
+        void sre_SpeechRecognitionRejected(object sender, SpeechRecognitionRejectedEventArgs e)
+        {
+
+        }
+
+        void sre_RecognizeCompleted(object sender, RecognizeCompletedEventArgs e)
+        {
+            sre.RecognizeAsync();
+
+        }
+
+        void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+
+            if (e.Result.Text == "left")
             {
-                String right = "right";
-                String left = "left";
-                String up = "up";
-                String down = "down";
-                try
-                {
-                    System.Console.WriteLine("Start talking!");
-                    recognizer.SetInputToDefaultAudioDevice();
-                    RecognitionResult result = recognizer.Recognize();
-                    System.Console.WriteLine(result.Text);
-                    if (result.Equals(right))
-                    {
-                        direction = "right";
-                    }
-                    else if (result.Equals(left))
-                    {
-                        direction = "left";
-                    }
-                    else if (result.Equals(up))
-                    {
-                        direction = "down";
-                    }
-                    else if (result.Equals(down))
-                    {
-                        direction = "left";
-                    }
-                }
-                catch (InvalidOperationException exception)
-                {
-                    System.Console.WriteLine(
-                        String.Format(
-                            "Could not recognize input; {0}: '{1}'.",
-                             exception.GetType(), exception.Message));
-                }
-                finally
-                {
-                    recognizer.UnloadAllGrammars();
-                }
+                direction = "left";
             }
-            System.Console.ReadKey(true);
+            else if (e.Result.Text == "right")
+            {
+                direction = "right";
+            }
+            else if (e.Result.Text == "up")
+            {
+                direction = "up";
+            }
+            else if (e.Result.Text == "down")
+            {
+                direction = "down";
+            }
+
+
+        }
+
+        void sre_SpeechDetected(object sender, SpeechDetectedEventArgs e)
+        {
+
         }
 
         public override void setType()
         {
             inputType = "speech";
         }
-
-
-
     }
 }
