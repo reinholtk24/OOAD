@@ -16,6 +16,7 @@ namespace SnakeV1
         GamePiece obs1;
         GamePiece obs2;
         GamePiece obs3;
+        string gameDifficulty;
         public System.Timers.Timer aTimer;
 
         public GameController()
@@ -25,19 +26,44 @@ namespace SnakeV1
 
         public void newGame()
         {
-            currentInput = new Speech();
+            currentInput = new Keyboard();
             snake = new Snake();
             food = new Food();
-            addObstacles(20);
+           
+            if(gameDifficulty == "easy")
+            {
+                addObstacles(5);
+            }
+            else if (gameDifficulty == "medium")
+            {
+                addObstacles(10);
+            }
+            else if(gameDifficulty == "hard")
+            {
+                addObstacles(20);
+            }
+            
         }
 
         private void addObstacles(int count)
         {
-            for(int i = 0; i < count; i++)
+           
+            for (int i = 0; i < count; i++)
             {
-                Obstacle obstacle = new Obstacle(); 
+                Obstacle obstacle = new Obstacle();
             }
+            
        
+        }
+
+        public string getLevel()
+        {
+            return gameDifficulty;
+        }
+
+        public void setLevel(string difficulty)
+        {
+            this.gameDifficulty = difficulty;
         }
 
         public void setInputAsKeyboard()
