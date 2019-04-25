@@ -35,7 +35,7 @@ namespace SnakeV1
             initHost(); 
             InitializeComponent();
             test();
-            printCanvasChildren();
+            //printCanvasChildren();
         }
 
         public void test()
@@ -116,24 +116,27 @@ namespace SnakeV1
         private void easy_Click(object sender, RoutedEventArgs e)
         {
             GameCanvas.Background = Brushes.LightGray;
-            test(); 
-            gc.newGame(); 
+            test();
+            gc.setLevel("easy");
+            gc.newGame();
             gc.SetTimer("easy");
         }
 
         private void medium_Click(object sender, RoutedEventArgs e)
         {
             GameCanvas.Background = Brushes.LightGray;
-            test(); 
-            gc.newGame(); 
+            test();
+            gc.setLevel("medium");
+            gc.newGame();
             gc.SetTimer("medium");
         }
 
         private void hard_Click(object sender, RoutedEventArgs e)
         {
             GameCanvas.Background = Brushes.LightGray;
-            test(); 
-            gc.newGame(); 
+            test();
+            gc.setLevel("hard");
+            gc.newGame();
             gc.SetTimer("hard");
         }
     }
