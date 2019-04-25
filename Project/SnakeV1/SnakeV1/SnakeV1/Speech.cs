@@ -34,13 +34,13 @@ namespace SnakeV1
 
         private void CreateCommands()
         {
-            string[] commands = new string[] { "left", "right", "up", "down" };
+            string[] commands = new string[] { "left", "right", "up", "down","luh","ruh","uh","duh" };
             Choices insChoices = new Choices(commands);
             GrammarBuilder insGrammarBuilder = new GrammarBuilder(insChoices);
             Grammar insGrammar = new Grammar(insGrammarBuilder);
             sre.LoadGrammar(insGrammar);
         }
-
+        
         void sre_SpeechRecognitionRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
 
@@ -54,20 +54,19 @@ namespace SnakeV1
 
         void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-
-            if (e.Result.Text == "left")
+            if (e.Result.Text == "left" || e.Result.Text == "luh")
             {
                 direction = "left";
             }
-            else if (e.Result.Text == "right")
+            else if (e.Result.Text == "right" || e.Result.Text == "ruh")
             {
                 direction = "right";
             }
-            else if (e.Result.Text == "up")
+            else if (e.Result.Text == "up" || e.Result.Text == "uh")
             {
                 direction = "up";
             }
-            else if (e.Result.Text == "down")
+            else if (e.Result.Text == "down" || e.Result.Text == "duh")
             {
                 direction = "down";
             }

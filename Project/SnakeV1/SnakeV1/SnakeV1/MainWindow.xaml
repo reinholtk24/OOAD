@@ -70,7 +70,7 @@
             <ColumnDefinition Width="47*"/>
             <ColumnDefinition Width="1481*"/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="GameCanvas" HorizontalAlignment="Left" Height="800" VerticalAlignment="Top" Width="1205" Margin="10,46,0,0" Background="#FFF1F1F1" Grid.ColumnSpan="3"/>
+        <Canvas x:Name="GameCanvas" HorizontalAlignment="Left" Height="740" VerticalAlignment="Top" Width="1155" Margin="27,70,0,0" Background="#FFF1F1F1" Grid.ColumnSpan="2" Grid.Column="1"/>
         <Button x:Name="KeyboardButton" Click="KeyboardButton_Click"  Content="Keyboard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,185,0,0" Height="50" Grid.Column="2"/>
         <Button Content="Speech" Click="SpeechButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,46,0,0" Height="53" Grid.Column="2"/>
         <Button x:Name="GazeButton" Content="Gaze" Click="GazeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,441,0,0" Height="50" Grid.Column="2"/>
