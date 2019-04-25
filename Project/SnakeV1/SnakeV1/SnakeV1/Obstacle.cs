@@ -30,8 +30,8 @@ namespace SnakeV1
             Random rnd = new Random(DateTime.Now.Millisecond);
             int x = rnd.Next(1, ((int)win.GameCanvas.Width-(int)part.Width));
             int y = rnd.Next(1, ((int)win.GameCanvas.Height-(int)part.Height));
-            Canvas.SetLeft(part, x);
-            Canvas.SetTop(part, y);
+            Canvas.SetLeft(part, -100);
+            Canvas.SetTop(part, -100);
             win.GameCanvas.Children.Add(part);
         }
     }
