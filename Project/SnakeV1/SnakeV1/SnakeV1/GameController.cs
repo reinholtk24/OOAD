@@ -10,12 +10,10 @@ namespace SnakeV1
 {
     class GameController
     {
-        Input currentInput;
+        public Input currentInput;
         Snake snake;
         GamePiece food;
-        GamePiece obs1;
-        GamePiece obs2;
-        GamePiece obs3;
+ 
         string gameDifficulty;
         public System.Timers.Timer aTimer;
 
@@ -64,6 +62,15 @@ namespace SnakeV1
         public void setLevel(string difficulty)
         {
             this.gameDifficulty = difficulty;
+        }
+
+        public void setInputAsTouch()
+        {
+            if (currentInput.getType() == "gaze")
+            {
+                currentInput.hide();
+            }
+            currentInput = new Touch();
         }
 
         public void setInputAsKeyboard()
