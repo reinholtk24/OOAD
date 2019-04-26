@@ -1,2 +1,15 @@
-TODO: 
-	Update Project Contents
+# CSCI5448 Homework 6
+# Project Name: Snake Eyes
+
+## Team Members: Kyle Reinholt, Gabriella Johnson
+
+### CSCI5448-001, CSCI5448-001B
+
+- **Project Overview**:
+This project adapted the classic Snake game to be utilized with multiple input methods: keyboard, touch, speech, eye gaze, and mouse.
+
+- **Files in Repo**:
+
+
+- **Execution Notes**:
+This code will not run unless you have the Tobii Eye Tracker driver downloaded onto your machine because of our eye gaze input method. The demostration of this project will be documented with a video.
