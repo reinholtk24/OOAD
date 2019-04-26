@@ -15,16 +15,15 @@ namespace SnakeV1
         Input currentInput;
         Snake snake;
         GamePiece food;
-        GamePiece obs1;
-        GamePiece obs2;
-        GamePiece obs3;
+
         string gameDifficulty;
         public System.Timers.Timer aTimer;
         private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
 
         public GameController()
         {
-          
+            //When this object is instantiated, we want a null pointer to the object space in memory
+            //when new game is called, we can instantiate the currentInput, snake, food, background, and obstacle objects
         }
 
         public void newGame()
@@ -53,14 +52,11 @@ namespace SnakeV1
         }
 
         private void addObstacles(int count)
-        {
-           
+        {       
             for (int i = 0; i < count; i++)
             {
                 Obstacle obstacle = new Obstacle();
             }
-            
-       
         }
 
         public string getLevel()
@@ -136,8 +132,9 @@ namespace SnakeV1
 
         public void SetTimer(string difficulty)
         {
-            // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(getSpeed(difficulty)); // put in a smaller value to make the snake faster
+            // put in a smaller value to make the snake faster
+            aTimer = new System.Timers.Timer(getSpeed(difficulty)); 
+            
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
@@ -146,16 +143,21 @@ namespace SnakeV1
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            //Console.WriteLine("The Elapsed event was raised at {0:HH:mm:ss.fff}",e.SignalTime);
+            //When the timers interval has elapsed, we invoke a thread to move the snake
+
+            //based on the current input, get the most current direction input by the user and set the 
+            // snakes direction
             snake.setDirection(currentInput.getDirection());
             Application.Current.Dispatcher.Invoke(() =>
             {
+                //Then, if the snake is alive, move the snake
                 if (snake.isAlive())
                 {
                     snake.moveSnake2();
                 }
                 else
                 {
+                    //else, the snake is dead and we can stop the timer
                     aTimer.Stop();
                     aTimer.Dispose(); 
                     

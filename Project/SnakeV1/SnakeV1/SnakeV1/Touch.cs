@@ -10,7 +10,6 @@ namespace SnakeV1
 {
     class Touch : Input
     {
-        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
         Point start; 
 
         public Touch()

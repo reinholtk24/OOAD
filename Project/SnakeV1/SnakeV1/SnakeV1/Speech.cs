@@ -14,20 +14,21 @@ namespace SnakeV1
     class Speech : Input
     {
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
-        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
+        //Code for this class was found here: https://social.msdn.microsoft.com/Forums/vstudio/en-US/9c6eff5f-94a7-429b-b277-fee7c730bb1a/speech-recognition-in-workerthread?forum=csharpgeneral
+        /// <summary>
+        /// We edited this code quite a bit to meet the needs of this system, but the core events and functions are the same
+        /// </summary>
 
         public Speech() : base()
         {
-                runSpeech();
+            runSpeech();
         }
 
         private void runSpeech()
         {
             CreateCommands();
-            sre.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(sre_SpeechDetected);
             sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
             sre.RecognizeCompleted += new EventHandler<RecognizeCompletedEventArgs>(sre_RecognizeCompleted);
-            sre.SpeechRecognitionRejected += new EventHandler<SpeechRecognitionRejectedEventArgs>(sre_SpeechRecognitionRejected);
             Thread t = new Thread(delegate () { sre.SetInputToDefaultAudioDevice(); sre.RecognizeAsync(RecognizeMode.Single); });
             t.Start();
         }
@@ -40,16 +41,10 @@ namespace SnakeV1
             Grammar insGrammar = new Grammar(insGrammarBuilder);
             sre.LoadGrammar(insGrammar);
         }
-        
-        void sre_SpeechRecognitionRejected(object sender, SpeechRecognitionRejectedEventArgs e)
-        {
-
-        }
 
         void sre_RecognizeCompleted(object sender, RecognizeCompletedEventArgs e)
         {
             sre.RecognizeAsync();
-
         }
 
         void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
@@ -70,13 +65,6 @@ namespace SnakeV1
             {
                 direction = "down";
             }
-
-
-        }
-
-        void sre_SpeechDetected(object sender, SpeechDetectedEventArgs e)
-        {
-
         }
 
         public override void setType()

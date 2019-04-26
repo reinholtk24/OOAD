@@ -10,11 +10,10 @@ using System.Windows;
 namespace SnakeV1
 {
     class Gaze : Input
-    {
-        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
-        
+    {   
         public Gaze()
         {
+            //Add gaze behavior events to the gaze buttons on the main window
             win.GazeUp.AddHasGazeChangedHandler(gazeUp);
             win.GazeDown.AddHasGazeChangedHandler(gazeDown);
             win.GazeLeft.AddHasGazeChangedHandler(gazeLeft);
@@ -40,6 +39,7 @@ namespace SnakeV1
 
         private void gazeRight(object sender, HasGazeChangedRoutedEventArgs e)
         {
+            //If the right gaze button has gaze, then set the direction for the snake to travel to the right. 
             if (e.HasGaze == true)
             {
                 direction = "right";

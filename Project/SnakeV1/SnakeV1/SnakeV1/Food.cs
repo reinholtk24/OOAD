@@ -9,8 +9,6 @@ namespace SnakeV1
 {
     class Food : GamePiece
     {
-        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
-
         public Food() : base() 
         {
             addToCanvas(); 

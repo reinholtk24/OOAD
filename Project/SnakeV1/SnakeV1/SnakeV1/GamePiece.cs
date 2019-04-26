@@ -11,6 +11,9 @@ namespace SnakeV1
 {
     class GamePiece
     {
+        //Food, Obstacle, and SnakePart all inherit from this class
+        //This class allows for each gamepiece to setgraphics and type for each gamepiece in the canvas
+        protected MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow; 
         protected Rectangle part;
         protected string type;
         protected string graphic; 

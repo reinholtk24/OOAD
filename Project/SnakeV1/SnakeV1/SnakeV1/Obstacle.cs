@@ -11,8 +11,6 @@ namespace SnakeV1
 {
     class Obstacle : GamePiece
     {
-        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
-
         public Obstacle() : base() { addToCanvas(); }
         public override void setType()
         {

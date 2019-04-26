@@ -23,55 +23,53 @@ namespace SnakeV1
     /// </summary>
     public partial class MainWindow : Window
     {
-        GameController gc;
-        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
-        private static WpfInteractorAgent _agent;
+        GameController gc; //The class that handles instantiating the game elements and refreshing the canvas
+        private static WpfInteractorAgent _agent; //This is for gaze interactive UI elements in a WPF application
         private static Host _host; //hosts the connection to eye tracker 
-
-        private static GazePointDataStream _gazePointDataStream; //gets eye gaze from tracker
 
         public MainWindow()
         {
             initHost(); 
             InitializeComponent();
-            test();
-            //printCanvasChildren();
+            initGameController();
         }
 
-        public void test()
+        //Initialize GameController, this controls the timer that renders everything to the screen 
+        // as well as the current input
+        public void initGameController()
         {
            GameController newGame = new GameController(); 
            gc = newGame; 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Mouse_Click(object sender, RoutedEventArgs e)
         {
+            //When mouse button is clicked, we want to change the input to Mouse 
             gc.setInputAsMouse();  
         }
 
         private void KeyboardButton_Click(object sender, RoutedEventArgs e)
         {
+            //When keyboard button is clicked, we want to change the input to keyboard 
             gc.setInputAsKeyboard(); 
         }
     
         private void GazeButton_Click(object sender, RoutedEventArgs e)
         {
+            //When gaze button is clicked, we want to change the input to gaze
             gc.setInputAsGaze(); 
         }
 
         private void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
+            //When speech button is clicked, we want to change the input to speech
             gc.setInputAsSpeech();
         }
 
         private void Touch_Click(object sender, RoutedEventArgs e)
         {
+            //When touch button is clicked, we want to change the input to touch
             gc.setInputAsTouch();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            CreateAndVisualizeUnfilteredGazePointStream(); 
         }
 
         public void initHost()
@@ -79,54 +77,18 @@ namespace SnakeV1
             _host = new Host();
             _agent = _host.InitializeWpfAgent();
         }
-
-        private static void CreateAndVisualizeUnfilteredGazePointStream()
-        {
-            if (_gazePointDataStream != null)
-                _gazePointDataStream.Next -= OnNextGazePoint;
-
-            _gazePointDataStream = _host.Streams.CreateGazePointDataStream(Tobii.Interaction.Framework.GazePointDataMode.Unfiltered);
-            _gazePointDataStream.Next += OnNextGazePoint;
-        }
-
-        private static void OnNextGazePoint(object sender, StreamData<GazePointData> gazePoint)
-        {
-            //Uncomment next line to see eye tracker output
-            //Console.WriteLine("Timestamp: {0}\t,X:{1}, Y:{2}" + gazePoint.Data.Timestamp.ToString() + "\t" + gazePoint.Data.X.ToString() + "\t" + gazePoint.Data.Y.ToString());
-
-            string X = "";
-            string Y = "";
-            string TS = "";
-
-            X = gazePoint.Data.X.ToString();
-            Y = gazePoint.Data.Y.ToString();
-            TS = gazePoint.Data.Timestamp.ToString();
-            string SystemTS = DateTime.Now.ToString("mm:ss.ffffff");
-
-            //format gaze data for txt file
-            string data = TS + "," + X + "," + Y + "," + SystemTS;
-
-        }
-
-        //test function
-        private void printCanvasChildren()
-        {
-            foreach(UIElement r in GameCanvas.Children)
-            {
-                 System.Windows.Shapes.Rectangle R = (System.Windows.Shapes.Rectangle)r;
-                Console.WriteLine(R.Name); 
-            }
-        }
+        
 
         private void easy_Click(object sender, RoutedEventArgs e)
         {
+            //When easy is clicked, we want to hide menu options and set the game to easy mode
             GameCanvas.Background = Brushes.LightGray;
             easy.Visibility = Visibility.Hidden;
             hard.Visibility = Visibility.Hidden;
             medium.Visibility = Visibility.Hidden;
             gameText.Visibility = Visibility.Hidden;
             restart.Visibility = Visibility.Hidden;
-            test();
+            initGameController();
             gc.setLevel("easy");
             gc.newGame();
             gc.SetTimer("easy");
@@ -134,13 +96,14 @@ namespace SnakeV1
 
         private void medium_Click(object sender, RoutedEventArgs e)
         {
+            //When meduim is clicked, we want to hide menu options and set the game to medium mode
             GameCanvas.Background = Brushes.LightGray;
             easy.Visibility = Visibility.Hidden;
             hard.Visibility = Visibility.Hidden;
             medium.Visibility = Visibility.Hidden;
             gameText.Visibility = Visibility.Hidden;
             restart.Visibility = Visibility.Hidden;
-            test();
+            initGameController();
             gc.setLevel("medium");
             gc.newGame();
             gc.SetTimer("medium");
@@ -148,13 +111,14 @@ namespace SnakeV1
 
         private void hard_Click(object sender, RoutedEventArgs e)
         {
+            //When hard is clicked, we want to hide menu options and set the game to easy mode
             GameCanvas.Background = Brushes.LightGray;
             easy.Visibility = Visibility.Hidden;
             hard.Visibility = Visibility.Hidden;
             medium.Visibility = Visibility.Hidden;
             gameText.Visibility = Visibility.Hidden;
             restart.Visibility = Visibility.Hidden;
-            test();
+            initGameController();
             gc.setLevel("hard");
             gc.newGame();
             gc.SetTimer("hard");

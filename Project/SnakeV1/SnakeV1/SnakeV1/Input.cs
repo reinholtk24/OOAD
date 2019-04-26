@@ -8,6 +8,8 @@ namespace SnakeV1
 {
     class Input
     {
+        //Base class for all inputs: Speech, Touch, Keyboard, Mouse, Gaze
+        protected MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
         protected string inputType;
         protected string direction; 
 
