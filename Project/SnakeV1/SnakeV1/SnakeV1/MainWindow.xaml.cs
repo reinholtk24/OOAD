@@ -46,32 +46,22 @@ namespace SnakeV1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            gc.setInputAsMouse();
-            InputLabel.Content = "Current Input: Mouse";  
+            gc.setInputAsMouse();  
         }
 
         private void KeyboardButton_Click(object sender, RoutedEventArgs e)
         {
-            gc.setInputAsKeyboard();
-            InputLabel.Content = "Current Input: Keyboard";
+            gc.setInputAsKeyboard(); 
         }
     
         private void GazeButton_Click(object sender, RoutedEventArgs e)
         {
-            gc.setInputAsGaze();
-            InputLabel.Content = "Current Input: Gaze";
+            gc.setInputAsGaze(); 
         }
 
         private void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
             gc.setInputAsSpeech();
-            InputLabel.Content = "Current Input: Speech";
-        }
-
-        private void Touch_Click(object sender, RoutedEventArgs e)
-        {
-            gc.setInputAsTouch();
-            InputLabel.Content = "Current Input: Touch";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -164,6 +154,5 @@ namespace SnakeV1
             gc.newGame();
             gc.SetTimer("hard");
         }
-
     }
 }
