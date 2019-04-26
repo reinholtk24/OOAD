@@ -46,22 +46,32 @@ namespace SnakeV1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            gc.setInputAsMouse();  
+            gc.setInputAsMouse();
+            InputLabel.Content = "Current Input: Mouse";  
         }
 
         private void KeyboardButton_Click(object sender, RoutedEventArgs e)
         {
-            gc.setInputAsKeyboard(); 
+            gc.setInputAsKeyboard();
+            InputLabel.Content = "Current Input: Keyboard";
         }
     
         private void GazeButton_Click(object sender, RoutedEventArgs e)
         {
-            gc.setInputAsGaze(); 
+            gc.setInputAsGaze();
+            InputLabel.Content = "Current Input: Gaze";
         }
 
         private void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
             gc.setInputAsSpeech();
+            InputLabel.Content = "Current Input: Speech";
+        }
+
+        private void Touch_Click(object sender, RoutedEventArgs e)
+        {
+            gc.setInputAsTouch();
+            InputLabel.Content = "Current Input: Touch";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
