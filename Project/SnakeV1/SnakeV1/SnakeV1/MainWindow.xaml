@@ -66,34 +66,38 @@
     </Window.Resources>
     <Grid Margin="0,0,3.667,-0.333">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="15*"/>
-            <ColumnDefinition Width="278*"/>
-            <ColumnDefinition Width="197*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="699*"/>
+            <ColumnDefinition Width="135*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="581*"/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="GameCanvas" HorizontalAlignment="Left" Height="800" VerticalAlignment="Top" Width="1205" Margin="10,46,0,0" Background="#FFF1F1F1" Grid.ColumnSpan="3"/>
-        <Button x:Name="KeyboardButton" Click="KeyboardButton_Click"  Content="Keyboard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,185,0,0" Height="50" Grid.Column="2"/>
-        <Button Content="Speech" Click="SpeechButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,46,0,0" Height="53" Grid.Column="2"/>
-        <Button x:Name="GazeButton" Content="Gaze" Click="GazeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,441,0,0" Height="50" Grid.Column="2"/>
-        <Button Content="Mouse" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="1199.333,307,0,0" Height="50" Grid.Column="2"/>
-        <Label x:Name="TitleLabel" Content="Snake Eyes" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="6.556,1.125" Margin="144,0,0,0" Width="130" Height="46" FontSize="20" Grid.Column="2"/>
-        <Border x:Name="GazeUp" Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="535.333,512,55.667,292" Grid.Column="3">
+        <Canvas x:Name="GameCanvas" HorizontalAlignment="Left" Height="800" VerticalAlignment="Top" Width="1205" Margin="10,46,0,0" Background="#FFF1F1F1" Grid.ColumnSpan="6"/>
+        <Button x:Name="KeyboardButton" Click="KeyboardButton_Click"  Content="Keyboard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="356,193,0,0" Height="50" Grid.Column="5"/>
+        <Button Content="Speech" Click="SpeechButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="356,274,0,0" Height="53" Grid.Column="5"/>
+        <Button x:Name="GazeButton" Content="Gaze" Click="GazeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="355.667,452,0,0" Height="50" Grid.Column="5"/>
+        <Button Content="Mouse" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="356,368,0,0" Height="50" Grid.Column="5"/>
+        <Label x:Name="TitleLabel" Content="Snake Eyes" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="6.556,1.125" Margin="145,0,0,0" Width="130" Height="46" FontSize="20" Grid.Column="2"/>
+        <Border x:Name="GazeUp" Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="525,512,55.667,292" Grid.Column="5">
             <TextBlock x:Name="Buttword" Text="Up" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
-        <Border x:Name="GazeLeft" Visibility="Hidden"  Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="479.333,582,111.667,222" Grid.Column="3">
+        <Border x:Name="GazeLeft" Visibility="Hidden"  Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="469,582,111.667,222" Grid.Column="5">
             <TextBlock x:Name="Buttword1" Text="Left" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
-        <Border x:Name="GazeRight"  Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="589.333,582,1.667,222" Grid.Column="3">
+        <Border x:Name="GazeRight"  Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="579,582,1.667,222" Grid.Column="5">
             <TextBlock x:Name="Buttword2" Text="Right" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
-        <Border x:Name="GazeDown" Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="535.333,652,55.667,152" Grid.Column="3">
+        <Border x:Name="GazeDown" Visibility="Hidden" Style="{StaticResource RectangleWithGazeAwareAnimation}" Panel.ZIndex="1" Margin="525,652,55.667,152" Grid.Column="5">
             <TextBlock x:Name="Buttword3" Text="Down" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
-        <Label x:Name="score" Content="Score: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="652.334,15,0,0" FontSize="14" Width="91" Height="26" Grid.Column="2"/>
-        <Button x:Name="easy" Click="easy_Click" Content="Easy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="1240.333,652,0,0" Grid.Column="2"/>
-        <Button x:Name="medium" Click="medium_Click" Content="Medium" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="1240.333,704,0,0" Grid.Column="2"/>
-        <Button x:Name="hard" Click="hard_Click" Content="Hard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="1240.333,767,0,0" Grid.Column="2"/>
-        <Button Content="Touch" Click="Touch_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="366,104,0,0" Height="53" Grid.Column="3"/>
-
+        <Label x:Name="score" Content="Score: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="653,15,0,0" FontSize="14" Width="91" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="easy" Foreground="Green" Click="easy_Click" Content="Easy" HorizontalAlignment="Left" FontSize="60" VerticalAlignment="Top" Width="280" Margin="44.333,619,0,0" Grid.Column="1" Height="83" Grid.ColumnSpan="2"/>
+        <Button x:Name="medium" Foreground="Blue" Click="medium_Click" Content="Medium" HorizontalAlignment="Left" FontSize="60" VerticalAlignment="Top" Width="280" Margin="352,619,0,0" Height="83" Grid.Column="2"/>
+        <Button x:Name="hard" Foreground="Red" Click="hard_Click" Content="Hard" HorizontalAlignment="Left" FontSize="60" VerticalAlignment="Top"  Width="280" Margin="3.333,619,0,0" Grid.Column="3" Height="83" Grid.ColumnSpan="3" />
+        <Button Content="Touch" Click="Touch_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="356,104,0,0" Height="53" Grid.Column="5"/>
+        <TextBox x:Name="restart" HorizontalAlignment="Left" Height="97" Margin="10,482,0,0" TextWrapping="Wrap" Text="Play Again? Select a Level" FontSize="70" TextAlignment="Center" Visibility="Hidden" VerticalAlignment="Top" Width="1204" Grid.ColumnSpan="6" />
+        <TextBox x:Name="gameText" Foreground="LightSeaGreen" HorizontalAlignment="Left" Height="190" Margin="10,193,0,0" TextWrapping="Wrap" Text="Snake Eyes" FontSize="140" TextAlignment="Center" VerticalAlignment="Top" Width="1205" Grid.ColumnSpan="6"/>
+        
     </Grid>
 </Window>

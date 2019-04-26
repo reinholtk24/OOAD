@@ -159,5 +159,7 @@ namespace SnakeV1
             gc.newGame();
             gc.SetTimer("hard");
         }
+
+        
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace SnakeV1
 {
@@ -18,6 +20,7 @@ namespace SnakeV1
         GamePiece obs3;
         string gameDifficulty;
         public System.Timers.Timer aTimer;
+        private MainWindow win = (MainWindow)System.Windows.Application.Current.MainWindow;
 
         public GameController()
         {
@@ -29,8 +32,12 @@ namespace SnakeV1
             currentInput = new Keyboard();
             snake = new Snake();
             food = new Food();
-           
-            if(gameDifficulty == "easy")
+            win.GameCanvas.Background = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\grass1.jpg", UriKind.Absolute))
+            };
+
+            if (gameDifficulty == "easy")
             {
                 addObstacles(5);
             }
