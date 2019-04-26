@@ -116,6 +116,11 @@ namespace SnakeV1
         private void easy_Click(object sender, RoutedEventArgs e)
         {
             GameCanvas.Background = Brushes.LightGray;
+            easy.Visibility = Visibility.Hidden;
+            hard.Visibility = Visibility.Hidden;
+            medium.Visibility = Visibility.Hidden;
+            gameText.Visibility = Visibility.Hidden;
+            restart.Visibility = Visibility.Hidden;
             test();
             gc.setLevel("easy");
             gc.newGame();
@@ -125,6 +130,11 @@ namespace SnakeV1
         private void medium_Click(object sender, RoutedEventArgs e)
         {
             GameCanvas.Background = Brushes.LightGray;
+            easy.Visibility = Visibility.Hidden;
+            hard.Visibility = Visibility.Hidden;
+            medium.Visibility = Visibility.Hidden;
+            gameText.Visibility = Visibility.Hidden;
+            restart.Visibility = Visibility.Hidden;
             test();
             gc.setLevel("medium");
             gc.newGame();
@@ -134,10 +144,16 @@ namespace SnakeV1
         private void hard_Click(object sender, RoutedEventArgs e)
         {
             GameCanvas.Background = Brushes.LightGray;
+            easy.Visibility = Visibility.Hidden;
+            hard.Visibility = Visibility.Hidden;
+            medium.Visibility = Visibility.Hidden;
+            gameText.Visibility = Visibility.Hidden;
+            restart.Visibility = Visibility.Hidden;
             test();
             gc.setLevel("hard");
             gc.newGame();
             gc.SetTimer("hard");
         }
+
     }
 }

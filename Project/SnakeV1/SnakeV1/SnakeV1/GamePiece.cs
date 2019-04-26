@@ -24,7 +24,7 @@ namespace SnakeV1
 
         public virtual void setGraphic()
         {
-            graphic = ""; 
+            graphic = "snake.jpg"; 
         }
 
         public void loadGraphic()

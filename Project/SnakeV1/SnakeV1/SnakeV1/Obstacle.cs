@@ -22,7 +22,7 @@ namespace SnakeV1
 
         public override void setGraphic()
         {
-            graphic = "obs.jpg"; 
+            graphic = "enemy.jpg"; 
         }
 
         public void addToCanvas()

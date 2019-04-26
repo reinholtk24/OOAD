@@ -29,7 +29,7 @@ namespace SnakeV1
 
         public override void setGraphic()
         {
-            graphic = "food2.jpg";
+            graphic = "cricket.jpg";
         }
 
         public override void setType()

@@ -81,28 +81,28 @@ namespace SnakeV1
             {
                 h.Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\up.jpg", UriKind.Absolute))
+                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\snakeheadUp.jpg", UriKind.Absolute))
                 };
             }
             if (direction == "down")
             {
                 h.Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\down.jpg", UriKind.Absolute))
+                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\snakeheadDown.jpg", UriKind.Absolute))
                 };
             }
             if (direction == "left")
             {
                 h.Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\left.jpg", UriKind.Absolute))
+                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\snakeheadLeft.jpg", UriKind.Absolute))
                 };
             }
             if (direction == "right")
             {
                 h.Fill = new ImageBrush
                 {
-                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\right.jpg", UriKind.Absolute))
+                    ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\snakehead.jpg", UriKind.Absolute))
                 };
             }
         }
@@ -230,20 +230,36 @@ namespace SnakeV1
                     {
                         win.GameCanvas.Children.Clear();
                         //game.Background = @"C:\\Users\\kychill\\Pictures\\Camera Roll\\go.png";
+                        /*
                         win.GameCanvas.Background = new ImageBrush
                         {
                             ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\go.png", UriKind.Absolute))
                         };
+                        */
+                        win.gameText.Text = "Game Over";
+                        win.gameText.Visibility = System.Windows.Visibility.Visible;
+                        win.restart.Visibility = System.Windows.Visibility.Visible;
+                        win.easy.Visibility = System.Windows.Visibility.Visible;
+                        win.hard.Visibility = System.Windows.Visibility.Visible;
+                        win.medium.Visibility = System.Windows.Visibility.Visible;
                         snake.Clear();
                         break;
                     }
                     if (outOfBounds())
                     {
                         win.GameCanvas.Children.Clear();
+                        /*
                         win.GameCanvas.Background = new ImageBrush
                         {
                             ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\go.png", UriKind.Absolute))
                         };
+                        */
+                        win.gameText.Text = "Game Over";
+                        win.gameText.Visibility = System.Windows.Visibility.Visible;
+                        win.restart.Visibility = System.Windows.Visibility.Visible;
+                        win.easy.Visibility = System.Windows.Visibility.Visible;
+                        win.hard.Visibility = System.Windows.Visibility.Visible;
+                        win.medium.Visibility = System.Windows.Visibility.Visible;
                         snake.Clear();
                         break;
                     }
@@ -316,10 +332,17 @@ namespace SnakeV1
                     if (checkObstacle(o))
                     {
                         win.GameCanvas.Children.Clear();
+                        /*
                         win.GameCanvas.Background = new ImageBrush
                         {
                             ImageSource = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\go.png", UriKind.Absolute))
-                        };
+                        };*/
+                        win.gameText.Text = "Game Over";
+                        win.gameText.Visibility = System.Windows.Visibility.Visible;
+                        win.restart.Visibility = System.Windows.Visibility.Visible;
+                        win.easy.Visibility = System.Windows.Visibility.Visible;
+                        win.hard.Visibility = System.Windows.Visibility.Visible;
+                        win.medium.Visibility = System.Windows.Visibility.Visible;
                         snake.Clear();
                         break;
                     }
