@@ -64,6 +64,11 @@ namespace SnakeV1
             gc.setInputAsSpeech();
         }
 
+        private void Touch_Click(object sender, RoutedEventArgs e)
+        {
+            gc.setInputAsTouch();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CreateAndVisualizeUnfilteredGazePointStream(); 

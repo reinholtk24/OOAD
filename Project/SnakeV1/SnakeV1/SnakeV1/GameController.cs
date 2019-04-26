@@ -75,6 +75,15 @@ namespace SnakeV1
             currentInput = new Keyboard(); 
         }
 
+        public void setInputAsTouch()
+        {
+            if (currentInput.getType() == "gaze")
+            {
+                currentInput.hide();
+            }
+            currentInput = new Touch();
+        }
+
         public void setInputAsMouse()
         {
             if (currentInput.getType() == "gaze")

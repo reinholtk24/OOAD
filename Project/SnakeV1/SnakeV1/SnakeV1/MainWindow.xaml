@@ -93,6 +93,7 @@
         <Button x:Name="easy" Click="easy_Click" Content="Easy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="1240.333,652,0,0" Grid.Column="2"/>
         <Button x:Name="medium" Click="medium_Click" Content="Medium" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="1240.333,704,0,0" Grid.Column="2"/>
         <Button x:Name="hard" Click="hard_Click" Content="Hard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="1240.333,767,0,0" Grid.Column="2"/>
+        <Button Content="Touch" Click="Touch_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="366,104,0,0" Height="53" Grid.Column="3"/>
 
     </Grid>
 </Window>
