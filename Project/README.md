@@ -6,7 +6,7 @@
 ### CSCI5448-001, CSCI5448-001B
 
 - **Project Overview**:
-This project adapted the classic Snake game to be utilized with multiple input methods: keyboard, touch, speech, eye gaze, and mouse.
+This project, Snake Eyes, adapted the classic Snake game to be utilized with multiple input methods: keyboard, touch, speech, eye gaze, and mouse in an attempt to make it accessible for people with varying physical and cognitive disabilities.
 
 - **Files in Repo**:
 
